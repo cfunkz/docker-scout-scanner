@@ -25,3 +25,6 @@ Before using the `docker-scout-scanner` script, you need the following installed
    ```bash
    git clone https://github.com/<your-username>/docker-scout-scanner.git
    cd docker-scout-scanner
+2. Make the script runnable:
+   - ```chmod +x dockerscout_scan.sh```
+   - Run the script ```./dockerscout_scan.sh```
