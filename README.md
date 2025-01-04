@@ -3,7 +3,7 @@
 ![image](https://github.com/user-attachments/assets/74dca4ca-6a6a-414f-b92d-8a9aee3fcaf1)
 ![image](https://github.com/user-attachments/assets/aeb36668-25d1-4b85-a5ad-a34f39359775)
 
-### What have
+### What to have prior
 Before using the `docker-scout-scanner` script, you need the following installed:
 
 1. **Docker** - Make sure Docker is installed and running on your system.
