@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Color codes for pretty visuals
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
@@ -66,5 +65,4 @@ for num in $selected_numbers; do
   fi
 done
 
-# Final message
 echo -e "\n${GREEN}${BOLD}Scan complete! Review vulnerabilities for each selected image.${RESET}"
