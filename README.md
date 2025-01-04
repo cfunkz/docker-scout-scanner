@@ -20,11 +20,11 @@ Before using the `docker-scout-scanner` script, you need the following installed
 ### Steps to Use the Script
 
 1. **Clone the Repository**:
-   First, clone the repository to your local machine:
+   First, clone the repository to your local machine or download file:
 
    ```bash
-   git clone https://github.com/<your-username>/docker-scout-scanner.git
-   cd docker-scout-scanner
+   curl -fsSL https://raw.githubusercontent.com/cfunkz/docker-scout-scanner/main/dockerscout_scan.sh -o dockerscout_scan.sh
+   
 2. Make the script runnable:
    - ```chmod +x dockerscout_scan.sh```
    - Run the script ```./dockerscout_scan.sh```
