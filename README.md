@@ -10,7 +10,7 @@ Before using the `docker-scout-scanner` script, you need the following installed
    - [Install Docker](https://docs.docker.com/get-docker/)
 
 2. **Docker Scout** - Install Docker Scout CLI.
-   - Download latest release [Docker Scout](https://github.com/docker/scout-cli/releases)
+   - Get link to latest [Docker Scout](https://github.com/docker/scout-cli/releases)
    - Download ```curl -fsSL <docker-scout-release.tar.gz> -o docker-scout.tar.gz```
    - Extract ```tar -xvzf docker-scout.tar.gz```
    - Make plugins dir if not there ```mkdir -p ~/.docker/cli-plugins```
