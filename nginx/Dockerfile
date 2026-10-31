@@ -1,7 +1,16 @@
 # syntax=docker/dockerfile:1
 ARG NGINX_IMAGE=nginx:alpine
 FROM ${NGINX_IMAGE}
-RUN rm -f /etc/nginx/conf.d/default.conf /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh \
+# Upgrade OS packages to the latest fixes (set APK_UPGRADE=false for offline builds).
+ARG APK_UPGRADE=true
+# Slim the stock image down to what serving static files + a reverse proxy
+# needs. curl (and with it libcurl and brotli) and the optional modules pull
+# in most of the image's CVEs and are never used here; the healthcheck uses
+# busybox wget.
+RUN apk del --no-network --purge curl \
+      nginx-module-acme nginx-module-geoip nginx-module-image-filter nginx-module-njs nginx-module-xslt \
+ && if [ "$APK_UPGRADE" = "true" ]; then apk upgrade --no-cache; fi \
+ && rm -rf /var/cache/apk/* /etc/nginx/conf.d/default.conf /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh \
  && mkdir -p /etc/nginx/generated \
  && chown -R nginx:nginx /var/cache/nginx
 COPY nginx/nginx.conf /etc/nginx/nginx.conf

@@ -76,12 +76,22 @@ Lost the password? `docker compose exec scanner scanner reset-password admin`
                                                           │   ├─ trivy / grype (+ their DB caches)
                                                           │   └─ EPSS + CISA KEV feeds
                                                           ▼
-                                     docker-socket-proxy (GET-only) ──▶ /var/run/docker.sock (ro)
+                                     socket-proxy (GET-only allowlist) ──▶ /var/run/docker.sock (ro)
 ```
 
 - **scanner**: one static Go binary (about 20 MB of heap when idle) that bundles Trivy and Grype. It has no web assets and is never published to the host.
 - **web**: nginx with the static UI (plain JS and CSS, no CDN, no build step). It terminates TLS and proxies `/api`.
-- **socket-proxy**: exposes only `GET` on images, containers, events and version. The scanner never sees the real Docker socket, so a bug in a scanner or a parser can't start containers or take over the host.
+- **socket-proxy**: the same scanner image running `scanner socket-proxy`. It forwards only `GET`/`HEAD` on ping, version, info, events, the container list and image list/inspect/history/export. Everything else (exec, container files and logs, any write) gets a 403 and a log line. The scanner never sees the real Docker socket, so a bug in a scanner or a parser can't start containers or take over the host.
+
+### The scanner's own images stay clean
+
+A vulnerability scanner that lights up its own dashboard is not a good look, so the images are built to scan clean:
+
+- **scanner / socket-proxy** run on `scratch`: no shell, no package manager, no OS packages. Trivy and Grype are compiled from source with the newest Go release and with `golang.org/x/crypto`, `golang.org/x/net` and `go-jose` bumped to their latest patch versions (`TOOL_BUMPS` build arg).
+- **web** is `nginx:alpine` with `curl`, `libcurl`, `brotli` and the unused nginx modules (njs, xslt, geoip, image-filter, acme, plus their font and image libraries) removed, and `apk upgrade` applied at build time.
+- Rebuild now and then (`docker compose build --pull`) to pick up new upstream fixes.
+
+What can still show up: Grype links the `github.com/docker/docker` v28 client library, and scanners flag Docker *daemon* CVEs against it. Those bugs are in dockerd, not in the client code that Grype uses, so the stack is not exposed. If you don't use Grype, set `WITH_GRYPE=false` in `.env` and rebuild to drop it.
 
 ## Security model
 

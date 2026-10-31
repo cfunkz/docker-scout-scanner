@@ -6,37 +6,36 @@
 name: docker-scanner
 
 services:
-  # Read-only, GET-only view of the Docker API. The scanner never gets the
-  # raw socket, so a compromised scanner cannot start containers or touch the host.
+  # Read-only, GET-only view of the Docker API, served by the scanner binary
+  # itself (`scanner socket-proxy`). Only image/container listing, image
+  # inspect/history/export, events and version pass; everything else gets 403.
+  # The scanner never gets the raw socket, so a compromised scanner cannot
+  # start containers, read container files or touch the host.
   socket-proxy:
-    image: ${SOCKET_PROXY_IMAGE:-tecnativa/docker-socket-proxy:latest}
+    image: docker-scout-scanner/scanner:local
+    command: ["socket-proxy"]
     restart: unless-stopped
+    # root only to open the socket; no capabilities, read-only filesystem.
+    user: "0:0"
     environment:
-      CONTAINERS: 1
-      IMAGES: 1
-      EVENTS: 1
-      PING: 1
-      VERSION: 1
-      INFO: 1
-      POST: 0
-      # The proxy only talks to the scanner over an internal IPv4 network.
-      DISABLE_IPV6: 1
-      LOG_LEVEL: warning
+      HEALTH_PING: "1"
+      LOG_LEVEL: ${LOG_LEVEL:-info}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks: [docker]
     read_only: true
-    tmpfs: [/run, /tmp]
+    cap_drop: [ALL]
     security_opt: [no-new-privileges:true]
+    mem_limit: 64m
 
   scanner:
     build:
       context: ./backend
       args:
-        GO_IMAGE: ${GO_IMAGE:-golang:1.26-alpine}
-        TRIVY_IMAGE: ${TRIVY_IMAGE:-aquasec/trivy:latest}
-        GRYPE_IMAGE: ${GRYPE_IMAGE:-anchore/grype:latest}
-        BASE_IMAGE: ${BASE_IMAGE:-alpine:3.22}
+        GO_IMAGE: ${GO_IMAGE:-golang:1.27-alpine}
+        TRIVY_VERSION: ${TRIVY_VERSION:-v0.76.1}
+        GRYPE_VERSION: ${GRYPE_VERSION:-v0.121.0}
+        WITH_GRYPE: ${WITH_GRYPE:-true}
     image: docker-scout-scanner/scanner:local
     restart: unless-stopped
     depends_on: [socket-proxy]

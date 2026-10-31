@@ -19,6 +19,7 @@ import (
 	"github.com/cfunkz/docker-scout-scanner/backend/internal/docker"
 	"github.com/cfunkz/docker-scout-scanner/backend/internal/engine"
 	"github.com/cfunkz/docker-scout-scanner/backend/internal/scanner"
+	"github.com/cfunkz/docker-scout-scanner/backend/internal/sockproxy"
 	"github.com/cfunkz/docker-scout-scanner/backend/internal/store"
 	"github.com/cfunkz/docker-scout-scanner/backend/internal/tlsgen"
 )
@@ -30,6 +31,8 @@ func main() {
 			os.Exit(healthcheck())
 		case "reset-password":
 			os.Exit(resetPassword(os.Args[2:]))
+		case "socket-proxy":
+			os.Exit(socketProxy())
 		}
 	}
 	log := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: level()}))
@@ -145,8 +148,12 @@ func healthcheck() int {
 	if addr[0] == ':' {
 		addr = "127.0.0.1" + addr
 	}
+	url := "http://" + addr + "/api/health"
+	if os.Getenv("HEALTH_PING") != "" { // socket-proxy mode
+		url = "http://127.0.0.1:2375/_ping"
+	}
 	c := &http.Client{Timeout: 3 * time.Second}
-	resp, err := c.Get("http://" + addr + "/api/health")
+	resp, err := c.Get(url)
 	if err != nil || resp.StatusCode != 200 {
 		return 1
 	}
@@ -182,5 +189,37 @@ func resetPassword(args []string) int {
 	st.DeleteUserSessions(ctx, u.ID, "")
 	st.Audit(ctx, "cli", "", "user_password_reset", u.Username)
 	fmt.Printf("New temporary password for %s: %s\n(you will be asked to change it at login)\n", u.Username, pw)
+	return 0
+}
+
+// socketProxy runs the read-only Docker API filter (see internal/sockproxy).
+func socketProxy() int {
+	log := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: level()}))
+	sock := os.Getenv("DOCKER_SOCKET")
+	if sock == "" {
+		sock = "/var/run/docker.sock"
+	}
+	addr := os.Getenv("LISTEN_ADDR")
+	if addr == "" {
+		addr = ":2375"
+	}
+	srv := &http.Server{
+		Addr:              addr,
+		Handler:           sockproxy.Handler(sock, log),
+		ReadHeaderTimeout: 10 * time.Second,
+	}
+	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer stop()
+	go func() {
+		<-ctx.Done()
+		sctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+		_ = srv.Shutdown(sctx)
+	}()
+	log.Info("docker socket proxy listening (read-only allowlist)", "addr", addr, "socket", sock)
+	if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
+		log.Error("socket proxy", "err", err)
+		return 1
+	}
 	return 0
 }
