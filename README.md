@@ -51,7 +51,7 @@ git clone https://github.com/cfunkz/docker-scout-scanner.git
 cd docker-scout-scanner
 cp .env.example .env          # optional: adjust ports, TLS names, proxies
 docker compose up -d --build
-docker compose logs scanner | grep "created admin account"
+docker compose logs scanner | grep "admin account"
 ```
 
 1. Open **https://localhost:8443** (or `https://<server-ip>:8443` from your LAN). The certificate is self-signed on first start, so accept it or [use your own](#tls-certificates).
@@ -64,7 +64,13 @@ The **admin panel** is at **https://127.0.0.1:8444** and is published on loopbac
 ssh -L 8444:127.0.0.1:8444 you@docker-host   # then open https://127.0.0.1:8444
 ```
 
-Lost the password? `docker compose exec scanner scanner reset-password admin`
+Lost the password, or the log says the admin account **already exists**? The data lives in the `docker-scanner_scanner-data` volume, which survives `docker compose down` and fresh clones, so no new password is generated. Reset it:
+
+```bash
+docker compose exec scanner scanner reset-password admin
+```
+
+To start completely fresh instead, run `docker compose down -v` (this deletes all scan history).
 
 ## Architecture
 

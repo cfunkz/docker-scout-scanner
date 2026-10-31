@@ -15,7 +15,7 @@ RUN apk del --no-network --purge curl \
  && chown -R nginx:nginx /var/cache/nginx
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/security-headers.conf /etc/nginx/security-headers.conf
-COPY nginx/40-scanner.sh /docker-entrypoint.d/40-scanner.sh
+COPY --chmod=755 nginx/40-scanner.sh /docker-entrypoint.d/40-scanner.sh
 COPY web/ /usr/share/nginx/html/
 EXPOSE 8080 8443 8444
 HEALTHCHECK --interval=30s --timeout=3s CMD wget -q --no-check-certificate -O /dev/null https://127.0.0.1:8443/api/health || exit 1

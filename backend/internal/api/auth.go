@@ -68,6 +68,11 @@ func checkPasswordPolicy(pw, username string) error {
 // ADMIN_PASSWORD or is generated, logged once and written to a 0600 file.
 func Bootstrap(ctx context.Context, st *store.Store, dataDir string, logf func(string, ...any)) error {
 	if st.UserCount(ctx) > 0 {
+		// Existing data volume: no new password is generated. Say so, so a
+		// reinstall on top of an old volume isn't a silent dead end.
+		logf("admin account already exists (existing data volume), no new password generated",
+			"forgot_password", "docker compose exec scanner scanner reset-password admin",
+			"start_fresh", "docker compose down -v (deletes all scan data)")
 		return nil
 	}
 	user := os.Getenv("ADMIN_USER")
