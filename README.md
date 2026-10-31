@@ -49,13 +49,25 @@ Trivy and Grype are great CLIs, but they print a report and stop. Docker Scout's
 ```bash
 git clone https://github.com/cfunkz/docker-scout-scanner.git
 cd docker-scout-scanner
-cp .env.example .env          # optional: adjust ports, TLS names, proxies
-docker compose up -d --build
-docker compose logs scanner | grep "admin account"
+./scanner.sh install
 ```
 
+That builds and starts the stack, waits until it's healthy, then prints the dashboard URL (with this machine's LAN IP), the admin login and the SSH-tunnel line for the admin panel. On first run it creates `.env` from `.env.example` with your LAN IP in the certificate. Other commands:
+
+| Command | What it does |
+|---|---|
+| `./scanner.sh status` | containers + URLs |
+| `./scanner.sh password` | reset the admin password and print the new one |
+| `./scanner.sh logs` | follow the logs |
+| `./scanner.sh update` | `git pull`, rebuild, restart (keeps data) |
+| `./scanner.sh stop` | stop (keeps data) |
+| `./scanner.sh reinstall` | **delete all data** and install fresh |
+| `./scanner.sh uninstall` | **delete** containers, volumes and built images |
+
+Prefer plain compose? `cp .env.example .env && docker compose up -d --build`, then `docker compose logs scanner | grep "admin account"`.
+
 1. Open **https://localhost:8443** (or `https://<server-ip>:8443` from your LAN). The certificate is self-signed on first start, so accept it or [use your own](#tls-certificates).
-2. Sign in as `admin` with the password from the log. You'll be asked to set a new password (12+ characters).
+2. Sign in as `admin` with the password the script (or the log) printed. You'll be asked to set a new password (12+ characters).
 3. The first scan starts on its own. The vulnerability DB download takes about a minute on first run.
 
 The **admin panel** is at **https://127.0.0.1:8444** and is published on loopback only. From another machine, use an SSH tunnel:
