@@ -286,8 +286,31 @@ function findingModal(f, layerName) {
 }
 
 async function fixTab(body, im, layerName) {
-  const plan = await api(`images/${shortId(im.id)}/fixplan`);
+  const [plan, findings] = await Promise.all([api(`images/${shortId(im.id)}/fixplan`), im.latest_scan ? api(`images/${shortId(im.id)}/findings`) : []]);
   const b = plan.base_image;
+  // Findings of one upgrade step: same package and installed version, not accepted.
+  const stepFindings = (st) => findings.filter((f) => f.pkg === st.pkg && f.version === st.installed && f.fixed && !f.ignored_by && st.vuln_ids.includes(f.id));
+  const vulnLink = (id) => h('a', { href: '#/vuln/' + encodeURIComponent(id) }, id);
+  const cveList = (st) => {
+    const ids = st.vuln_ids;
+    const shown = ids.slice(0, 3);
+    return h('div', { class: 'small cvelist' }, shown.map((id, i) => [i ? ', ' : '', vulnLink(id)]),
+      ids.length > shown.length ? h('span', { class: 'muted' }, ` +${ids.length - shown.length} more`) : null);
+  };
+  const stepModal = (st) => {
+    const rank = { CRITICAL: 4, HIGH: 3, MEDIUM: 2, LOW: 1, UNKNOWN: 0 };
+    const rows = stepFindings(st).sort((x, y) => y.risk - x.risk || rank[y.severity] - rank[x.severity]);
+    modal(`${st.pkg} ${st.installed} → ${st.target}`, h('div', null,
+      h('p', { class: 'muted' }, `Upgrading fixes these ${rows.length} vulnerabilities. Click an id for details and other affected images.`),
+      dataTable(rows, [
+        { key: 'risk', label: 'Risk', render: (f) => riskBadge(f.risk) },
+        { key: 'severity', label: 'Sev', sort: (f) => rank[f.severity] * 100 + f.cvss, render: (f) => sevBadge(f.severity) },
+        { key: 'id', label: 'Vulnerability', render: (f) => h('div', null, vulnLink(f.id), f.kev ? h('span', { class: 'chip chip-kev' }, 'KEV') : null, h('div', { class: 'muted small ellipsis' }, f.title)) },
+        { key: 'fixed', label: 'Fixed in', cls: 'nowrap', render: (f) => h('code', { class: 'ok' }, f.fixed) },
+        { key: 'epss', label: 'EPSS', cls: 'num', render: (f) => (f.epss ? pct(f.epss) : '') },
+        { key: 'url', label: '', cls: 'nowrap', nosort: true, render: (f) => (f.url ? h('a', { href: f.url, target: '_blank', rel: 'noopener noreferrer' }, 'Advisory ↗') : '') },
+      ], { pageSize: 50, initialSort: { key: 'risk', dir: -1 } })));
+  };
   mount(body,
     h('div', { class: 'grid3' },
       h('div', { class: 'kpi' }, h('div', { class: 'kpi-val' }, plan.fixable_total), h('div', { class: 'kpi-label' }, 'fixable findings')),
@@ -299,16 +322,16 @@ async function fixTab(body, im, layerName) {
         b.eosl ? h('strong', null, 'The base OS is end-of-life, so rebuild on a supported release. ') : '',
         b.share_pct >= 50 ? 'Rebuilding on a newer base image tag (or a slimmer one, such as distroless or alpine) is likely the quickest win.' : 'Most findings come from layers you add, so the package upgrades below matter more.')) : null,
     h('div', { class: 'card flush' }, dataTable(plan.steps, [
-      { key: 'pkg', label: 'Upgrade', render: (s) => h('div', null, h('code', null, s.pkg), h('span', { class: 'muted small' }, ' ' + s.pkg_type)) },
+      { key: 'pkg', label: 'Upgrade', render: (s) => h('div', null, h('code', null, s.pkg), h('span', { class: 'muted small' }, ' ' + s.pkg_type), cveList(s)) },
       { key: 'installed', label: 'From → to', nosort: true, render: (s) => h('span', null, h('code', null, s.installed), ' → ', h('code', { class: 'ok' }, s.target)) },
-      { key: 'fixes', label: 'Fixes', cls: 'num', render: (s) => h('span', { title: s.vuln_ids.join(', ') }, s.fixes) },
+      { key: 'fixes', label: 'CVEs fixed', cls: 'num', render: (s) => h('button', { class: 'btn small', title: 'Show the CVEs this upgrade fixes', onclick: () => stepModal(s) }, s.fixes + ' ›') },
       { key: 'critical', label: 'Crit/High', cls: 'num', sort: (s) => s.critical * 1000 + s.high, render: (s) => h('span', null, h('span', { class: 'cnt cnt-critical' + (s.critical ? '' : ' zero') }, 'C ' + s.critical), ' ', h('span', { class: 'cnt cnt-high' + (s.high ? '' : ' zero') }, 'H ' + s.high)) },
       { key: 'kev', label: 'KEV', cls: 'num', render: (s) => (s.kev ? h('span', { class: 'chip chip-kev' }, s.kev) : '') },
       { key: 'risk_sum', label: 'Risk removed', cls: 'num', render: (s) => s.risk_sum.toFixed(0) },
       { key: 'remaining', label: 'Left after', cls: 'num', render: (s) => (s.remaining ? h('span', { class: 'muted', title: 'findings in this package with no fix yet' }, s.remaining) : '0') },
       { key: 'layer', label: 'Layer', render: (s) => h('span', { class: 'small ellipsis layer', title: layerName(s.layer) }, layerName(s.layer)) },
-    ], { empty: 'No fixable findings. Remaining issues have no upstream fix yet.', initialSort: { key: 'risk_sum', dir: -1 } })),
-    h('p', { class: 'muted small' }, 'Target versions are the lowest that clear every listed vulnerability in the package. Check your package manager for the exact version string.'));
+    ], { empty: 'No fixable findings. Remaining issues have no upstream fix yet.', initialSort: { key: 'risk_sum', dir: -1 }, onRow: (s) => stepModal(s) })),
+    h('p', { class: 'muted small' }, 'Click a row to list the CVEs it fixes. The full per-CVE list is on the Findings tab. Target versions are the lowest that clear every listed vulnerability in the package. Check your package manager for the exact version string.'));
 }
 
 async function changesTab(body, im) {

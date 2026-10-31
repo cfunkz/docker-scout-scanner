@@ -191,3 +191,4 @@ legend { font-weight: 700; padding: 0 6px; }
 
 @media (prefers-reduced-motion: no-preference) { .tbl tr.clickable td { transition: background .1s; } }
 @media print { header.top, .toolbar, .btnrow, .pager { display: none; } .card { box-shadow: none; break-inside: avoid; } }
+.cvelist { margin-top: 2px; }
