@@ -1,0 +1,105 @@
+# docker-scout-scanner
+#   Dashboard: https://<this-host>:8443   (TLS + sign-in, fine for your LAN)
+#   Admin:     https://127.0.0.1:8444     (published on localhost only)
+# Settings live in .env (copy .env.example).
+
+name: docker-scanner
+
+services:
+  # Read-only, GET-only view of the Docker API. The scanner never gets the
+  # raw socket, so a compromised scanner cannot start containers or touch the host.
+  socket-proxy:
+    image: ${SOCKET_PROXY_IMAGE:-tecnativa/docker-socket-proxy:latest}
+    restart: unless-stopped
+    environment:
+      CONTAINERS: 1
+      IMAGES: 1
+      EVENTS: 1
+      PING: 1
+      VERSION: 1
+      INFO: 1
+      POST: 0
+      # The proxy only talks to the scanner over an internal IPv4 network.
+      DISABLE_IPV6: 1
+      LOG_LEVEL: warning
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks: [docker]
+    read_only: true
+    tmpfs: [/run, /tmp]
+    security_opt: [no-new-privileges:true]
+
+  scanner:
+    build:
+      context: ./backend
+      args:
+        GO_IMAGE: ${GO_IMAGE:-golang:1.26-alpine}
+        TRIVY_IMAGE: ${TRIVY_IMAGE:-aquasec/trivy:latest}
+        GRYPE_IMAGE: ${GRYPE_IMAGE:-anchore/grype:latest}
+        BASE_IMAGE: ${BASE_IMAGE:-alpine:3.22}
+    image: docker-scout-scanner/scanner:local
+    restart: unless-stopped
+    depends_on: [socket-proxy]
+    environment:
+      DOCKER_HOST: tcp://socket-proxy:2375
+      TLS_SANS: ${TLS_SANS:-}
+      ADMIN_USER: ${ADMIN_USER:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      DEFAULT_ENGINE: ${DEFAULT_ENGINE:-trivy}
+      OFFLINE: ${OFFLINE:-}
+      METRICS_TOKEN: ${METRICS_TOKEN:-}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      TZ: ${TZ:-UTC}
+    volumes:
+      - scanner-data:/data
+      - certs:/certs
+    networks: [docker, app, egress]
+    read_only: true
+    tmpfs: [/tmp:size=2g]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: ${SCANNER_MEM_LIMIT:-2g}
+
+  web:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+      args:
+        NGINX_IMAGE: ${NGINX_IMAGE:-nginx:alpine}
+    image: docker-scout-scanner/web:local
+    restart: unless-stopped
+    depends_on:
+      scanner:
+        condition: service_healthy
+    environment:
+      SCANNER_UPSTREAM: scanner
+      TRUSTED_PROXIES: ${TRUSTED_PROXIES:-}
+      HTTP_MODE: ${HTTP_MODE:-redirect}
+      PUBLIC_HOST: ${PUBLIC_HOST:-}
+      PUBLIC_HTTPS_PORT: ${DASHBOARD_PORT:-8443}
+      ADMIN_ALLOW: ${ADMIN_ALLOW:-}
+    ports:
+      - "${DASHBOARD_BIND:-0.0.0.0}:${DASHBOARD_PORT:-8443}:8443"
+      - "${DASHBOARD_BIND:-0.0.0.0}:${HTTP_PORT:-8080}:8080"
+      # The admin panel is only ever published on loopback.
+      - "127.0.0.1:${ADMIN_PORT:-8444}:8444"
+    volumes:
+      - certs:/certs:ro
+    networks: [app, edge]
+    cap_drop: [ALL]
+    # DAC_OVERRIDE lets the nginx master (root) read the key that the
+    # non-root scanner generated; everything else stays dropped.
+    cap_add: [CHOWN, SETGID, SETUID, DAC_OVERRIDE]
+    security_opt: [no-new-privileges:true]
+
+volumes:
+  scanner-data:
+  certs:
+
+networks:
+  docker:
+    internal: true
+  app:
+    internal: true
+  egress: {}
+  edge: {}

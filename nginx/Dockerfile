@@ -1,0 +1,12 @@
+# syntax=docker/dockerfile:1
+ARG NGINX_IMAGE=nginx:alpine
+FROM ${NGINX_IMAGE}
+RUN rm -f /etc/nginx/conf.d/default.conf /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh \
+ && mkdir -p /etc/nginx/generated \
+ && chown -R nginx:nginx /var/cache/nginx
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/security-headers.conf /etc/nginx/security-headers.conf
+COPY nginx/40-scanner.sh /docker-entrypoint.d/40-scanner.sh
+COPY web/ /usr/share/nginx/html/
+EXPOSE 8080 8443 8444
+HEALTHCHECK --interval=30s --timeout=3s CMD wget -q --no-check-certificate -O /dev/null https://127.0.0.1:8443/api/health || exit 1
