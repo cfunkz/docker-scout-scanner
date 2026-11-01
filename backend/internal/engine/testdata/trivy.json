@@ -1,0 +1,2291 @@
+{
+ "SchemaVersion": 2,
+ "Trivy": {
+  "Version": "0.76.1"
+ },
+ "ReportID": "01a19363-2bb4-7ec3-b55c-8dd706cad0b5",
+ "CreatedAt": "2026-10-31T19:15:12.436969901Z",
+ "ArtifactName": "/sbom.json",
+ "ArtifactType": "cyclonedx",
+ "Metadata": {
+  "OS": {
+   "Family": "alpine",
+   "Name": "3.24.3"
+  },
+  "ImageID": "sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606",
+  "DiffIDs": [
+   "sha256:0118eeeab20f23cb5712fe7b96dd0a3460b185c3f9fb0bdb59062a3972f5b9af",
+   "sha256:26fc657c345556a2c48a5cdaa66f5e31ea881a18184bc943ad42cc46e93d7139",
+   "sha256:347d70688a4f620ee434007bc3b622592c459d0c45cbc275d0c8c3db0d2cb3e5",
+   "sha256:54733ab91a37b26f9dbcdebb53c37d88e967e1aca9e52984d231c7418c858dba",
+   "sha256:6e2ae602f9d69418f36fd9c178e472fb6e6b468f6aadd3dbd759fcee552a7527",
+   "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba",
+   "sha256:a027351c56d0ec60ff555693e0afdd9ac6536425c3a6cd70cfd99438c32cf33b",
+   "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+  ],
+  "RepoTags": [
+   "mirror.gcr.io/library/nginx:alpine"
+  ],
+  "RepoDigests": [
+   "mirror.gcr.io/library/nginx@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed0606"
+  ],
+  "Reference": "mirror.gcr.io/library/nginx:alpine"
+ },
+ "Results": [
+  {
+   "Target": "/sbom.json (alpine 3.24.3)",
+   "Class": "os-pkgs",
+   "Type": "alpine",
+   "Packages": [
+    {
+     "ID": "alpine-baselayout@3.7.2-r1",
+     "Name": "alpine-baselayout",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/alpine-baselayout@3.7.2-r1?arch=x86_64&distro=3.24.3",
+      "UID": "15b69c49ab11f8",
+      "BOMRef": "pkg:apk/alpine/alpine-baselayout@3.7.2-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "3.7.2-r1",
+     "Arch": "x86_64",
+     "SrcName": "alpine-baselayout",
+     "SrcVersion": "3.7.2-r1",
+     "Licenses": [
+      "GPL-2.0-only"
+     ],
+     "DependsOn": [
+      "alpine-baselayout-data@3.7.2-r1",
+      "busybox-binsh@1.37.0-r31"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:f0fcfdc2f4da058af6473bc45c4eab62916225b2"
+    },
+    {
+     "ID": "alpine-baselayout-data@3.7.2-r1",
+     "Name": "alpine-baselayout-data",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/alpine-baselayout-data@3.7.2-r1?arch=x86_64&distro=3.24.3",
+      "UID": "8656e76fe5e3446d",
+      "BOMRef": "pkg:apk/alpine/alpine-baselayout-data@3.7.2-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "3.7.2-r1",
+     "Arch": "x86_64",
+     "SrcName": "alpine-baselayout",
+     "SrcVersion": "3.7.2-r1",
+     "Licenses": [
+      "GPL-2.0-only"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:c6f9bded17d844b6f1b0bb5766d2c35c0d5c8508"
+    },
+    {
+     "ID": "alpine-keys@2.6-r0",
+     "Name": "alpine-keys",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/alpine-keys@2.6-r0?arch=x86_64&distro=3.24.3",
+      "UID": "1952d43b01476364",
+      "BOMRef": "pkg:apk/alpine/alpine-keys@2.6-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "2.6-r0",
+     "Arch": "x86_64",
+     "SrcName": "alpine-keys",
+     "SrcVersion": "2.6-r0",
+     "Licenses": [
+      "MIT"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:d8d6b80e53c059a77e4915da78ba964f3ffea240"
+    },
+    {
+     "ID": "alpine-release@3.24.3-r0",
+     "Name": "alpine-release",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/alpine-release@3.24.3-r0?arch=x86_64&distro=3.24.3",
+      "UID": "d457a1b917fd2af7",
+      "BOMRef": "pkg:apk/alpine/alpine-release@3.24.3-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "3.24.3-r0",
+     "Arch": "x86_64",
+     "SrcName": "alpine-base",
+     "SrcVersion": "3.24.3-r0",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "alpine-keys@2.6-r0"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:5ac96a125562b69acb43e645122b1862a1074141"
+    },
+    {
+     "ID": "aom-libs@3.14.1-r0",
+     "Name": "aom-libs",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/aom-libs@3.14.1-r0?arch=x86_64&distro=3.24.3",
+      "UID": "c9b54d76b0f9bfd0",
+      "BOMRef": "pkg:apk/alpine/aom-libs@3.14.1-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "3.14.1-r0",
+     "Arch": "x86_64",
+     "SrcName": "aom",
+     "SrcVersion": "3.14.1-r0",
+     "Licenses": [
+      "BSD-2-Clause",
+      "custom"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:fa8c19f848e5467ca7f93b9a80655fccd44fddf4"
+    },
+    {
+     "ID": "apk-tools@3.0.8-r0",
+     "Name": "apk-tools",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/apk-tools@3.0.8-r0?arch=x86_64&distro=3.24.3",
+      "UID": "9c582cc9182bc1c4",
+      "BOMRef": "pkg:apk/alpine/apk-tools@3.0.8-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "3.0.8-r0",
+     "Arch": "x86_64",
+     "SrcName": "apk-tools",
+     "SrcVersion": "3.0.8-r0",
+     "Licenses": [
+      "GPL-2.0-only"
+     ],
+     "DependsOn": [
+      "ca-certificates-bundle@20261020-r0",
+      "libapk@3.0.8-r0",
+      "libcrypto3@3.5.9-r0",
+      "musl@1.2.6-r3",
+      "zlib@1.3.2-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:786130a8f2d3ac69fc316118757b7e8151b8b8c3"
+    },
+    {
+     "ID": "brotli-libs@1.2.0-r1",
+     "Name": "brotli-libs",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/brotli-libs@1.2.0-r1?arch=x86_64&distro=3.24.3",
+      "UID": "e13c05a181590bda",
+      "BOMRef": "pkg:apk/alpine/brotli-libs@1.2.0-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.2.0-r1",
+     "Arch": "x86_64",
+     "SrcName": "brotli",
+     "SrcVersion": "1.2.0-r1",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:82f881516c045f06f22d7dc0a83cc64ca554ef10"
+    },
+    {
+     "ID": "busybox@1.37.0-r31",
+     "Name": "busybox",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/busybox@1.37.0-r31?arch=x86_64&distro=3.24.3",
+      "UID": "b52a7c0b326c8d09",
+      "BOMRef": "pkg:apk/alpine/busybox@1.37.0-r31?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.37.0-r31",
+     "Arch": "x86_64",
+     "SrcName": "busybox",
+     "SrcVersion": "1.37.0-r31",
+     "Licenses": [
+      "GPL-2.0-only"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:b5405ebc02f7dd8be95b6265c54b243d5456ab8f"
+    },
+    {
+     "ID": "busybox-binsh@1.37.0-r31",
+     "Name": "busybox-binsh",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/busybox-binsh@1.37.0-r31?arch=x86_64&distro=3.24.3",
+      "UID": "94f5a7f52703d341",
+      "BOMRef": "pkg:apk/alpine/busybox-binsh@1.37.0-r31?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.37.0-r31",
+     "Arch": "x86_64",
+     "SrcName": "busybox",
+     "SrcVersion": "1.37.0-r31",
+     "Licenses": [
+      "GPL-2.0-only"
+     ],
+     "DependsOn": [
+      "busybox@1.37.0-r31"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:5cbd14acc6f1804c5bac6c77dc2c492f010b0fc7"
+    },
+    {
+     "ID": "c-ares@1.34.9-r0",
+     "Name": "c-ares",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/c-ares@1.34.9-r0?arch=x86_64&distro=3.24.3",
+      "UID": "440fc724c8d75062",
+      "BOMRef": "pkg:apk/alpine/c-ares@1.34.9-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.34.9-r0",
+     "Arch": "x86_64",
+     "SrcName": "c-ares",
+     "SrcVersion": "1.34.9-r0",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:ed15eba84c2a3b24f9efe1941a1dd70c8b5825d2"
+    },
+    {
+     "ID": "ca-certificates@20261020-r0",
+     "Name": "ca-certificates",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/ca-certificates@20261020-r0?arch=x86_64&distro=3.24.3",
+      "UID": "7af48ebec593ad9c",
+      "BOMRef": "pkg:apk/alpine/ca-certificates@20261020-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "20261020-r0",
+     "Arch": "x86_64",
+     "SrcName": "ca-certificates",
+     "SrcVersion": "20261020-r0",
+     "Licenses": [
+      "MPL-2.0",
+      "MIT"
+     ],
+     "DependsOn": [
+      "busybox-binsh@1.37.0-r31",
+      "libcrypto3@3.5.9-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:bb910099b0e7b8aaf6c91497986fdca3abb13d35"
+    },
+    {
+     "ID": "ca-certificates-bundle@20261020-r0",
+     "Name": "ca-certificates-bundle",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/ca-certificates-bundle@20261020-r0?arch=x86_64&distro=3.24.3",
+      "UID": "4f21ad26a4c17672",
+      "BOMRef": "pkg:apk/alpine/ca-certificates-bundle@20261020-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "20261020-r0",
+     "Arch": "x86_64",
+     "SrcName": "ca-certificates",
+     "SrcVersion": "20261020-r0",
+     "Licenses": [
+      "MPL-2.0",
+      "MIT"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:7c6e635f86aafb46cb3b015d8505b3a5f61156bd"
+    },
+    {
+     "ID": "curl@8.22.0-r0",
+     "Name": "curl",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "8f537a81060cb509",
+      "BOMRef": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "8.22.0-r0",
+     "Arch": "x86_64",
+     "SrcName": "curl",
+     "SrcVersion": "8.22.0-r0",
+     "Licenses": [
+      "curl"
+     ],
+     "DependsOn": [
+      "libcurl@8.22.0-r0",
+      "musl@1.2.6-r3",
+      "zlib@1.3.2-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:cfbb78b38d8f69e33129b7e98863f1759878010d"
+    },
+    {
+     "ID": "fontconfig@2.17.1-r1",
+     "Name": "fontconfig",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/fontconfig@2.17.1-r1?arch=x86_64&distro=3.24.3",
+      "UID": "5556d1335d9e3449",
+      "BOMRef": "pkg:apk/alpine/fontconfig@2.17.1-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "2.17.1-r1",
+     "Arch": "x86_64",
+     "SrcName": "fontconfig",
+     "SrcVersion": "2.17.1-r1",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "busybox-binsh@1.37.0-r31",
+      "freetype@2.14.3-r0",
+      "libexpat@2.9.0-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:2a28043c2b53804ee978f356124fc9630d08ef5b"
+    },
+    {
+     "ID": "freetype@2.14.3-r0",
+     "Name": "freetype",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/freetype@2.14.3-r0?arch=x86_64&distro=3.24.3",
+      "UID": "69bd3ab49ef3ec3c",
+      "BOMRef": "pkg:apk/alpine/freetype@2.14.3-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "2.14.3-r0",
+     "Arch": "x86_64",
+     "SrcName": "freetype",
+     "SrcVersion": "2.14.3-r0",
+     "Licenses": [
+      "FTL",
+      "GPL-2.0-or-later"
+     ],
+     "DependsOn": [
+      "brotli-libs@1.2.0-r1",
+      "libbz2@1.0.8-r6",
+      "libpng@1.6.59-r0",
+      "musl@1.2.6-r3",
+      "zlib@1.3.2-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:8a74de09396559a888cec101d205cf488d8a49c6"
+    },
+    {
+     "ID": "geoip@1.6.12-r6",
+     "Name": "geoip",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/geoip@1.6.12-r6?arch=x86_64&distro=3.24.3",
+      "UID": "d75862ee3ec99b9f",
+      "BOMRef": "pkg:apk/alpine/geoip@1.6.12-r6?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.6.12-r6",
+     "Arch": "x86_64",
+     "SrcName": "geoip",
+     "SrcVersion": "1.6.12-r6",
+     "Licenses": [
+      "LGPL-2.1-or-later"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:9a489bd1ad29d1a003af435a706949560b53d63a"
+    },
+    {
+     "ID": "gettext-envsubst@1.0-r0",
+     "Name": "gettext-envsubst",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/gettext-envsubst@1.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "341485735eded82e",
+      "BOMRef": "pkg:apk/alpine/gettext-envsubst@1.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.0-r0",
+     "Arch": "x86_64",
+     "SrcName": "gettext",
+     "SrcVersion": "1.0-r0",
+     "Licenses": [
+      "GPL-3.0-or-later",
+      "LGPL-2.1-or-later",
+      "MIT"
+     ],
+     "DependsOn": [
+      "libintl@1.0-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:12b85cff06fd7d383d36a9c96503fe049c9d4bf3dfda5cbb9ffa6ae99b9c07a6",
+      "DiffID": "sha256:347d70688a4f620ee434007bc3b622592c459d0c45cbc275d0c8c3db0d2cb3e5"
+     },
+     "Digest": "sha1:a262710a91302c188f0382c1f3981724ce639b39"
+    },
+    {
+     "ID": "libapk@3.0.8-r0",
+     "Name": "libapk",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libapk@3.0.8-r0?arch=x86_64&distro=3.24.3",
+      "UID": "de9eb82df59579b2",
+      "BOMRef": "pkg:apk/alpine/libapk@3.0.8-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "3.0.8-r0",
+     "Arch": "x86_64",
+     "SrcName": "apk-tools",
+     "SrcVersion": "3.0.8-r0",
+     "Licenses": [
+      "GPL-2.0-only"
+     ],
+     "DependsOn": [
+      "libcrypto3@3.5.9-r0",
+      "libssl3@3.5.9-r0",
+      "musl@1.2.6-r3",
+      "zlib@1.3.2-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:b93ce9573c1d0db3eea7ce32841ad0857abc4a54"
+    },
+    {
+     "ID": "libavif@1.4.1-r0",
+     "Name": "libavif",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libavif@1.4.1-r0?arch=x86_64&distro=3.24.3",
+      "UID": "423738f715a99aa1",
+      "BOMRef": "pkg:apk/alpine/libavif@1.4.1-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.4.1-r0",
+     "Arch": "x86_64",
+     "SrcName": "libavif",
+     "SrcVersion": "1.4.1-r0",
+     "Licenses": [
+      "BSD-2-Clause"
+     ],
+     "DependsOn": [
+      "aom-libs@3.14.1-r0",
+      "libdav1d@1.5.3-r0",
+      "libyuv@0.0.1928-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:241fafd5c057bd55e542a8332e743d2cbf106183"
+    },
+    {
+     "ID": "libbsd@0.12.2-r0",
+     "Name": "libbsd",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libbsd@0.12.2-r0?arch=x86_64&distro=3.24.3",
+      "UID": "bef69a899fcccb3d",
+      "BOMRef": "pkg:apk/alpine/libbsd@0.12.2-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "0.12.2-r0",
+     "Arch": "x86_64",
+     "SrcName": "libbsd",
+     "SrcVersion": "0.12.2-r0",
+     "Licenses": [
+      "BSD-3-Clause"
+     ],
+     "DependsOn": [
+      "libmd@1.2.0-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:8245ff7dfee600c9da67e3757a156bd852764251"
+    },
+    {
+     "ID": "libbz2@1.0.8-r6",
+     "Name": "libbz2",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libbz2@1.0.8-r6?arch=x86_64&distro=3.24.3",
+      "UID": "f3d721bacd32e4bf",
+      "BOMRef": "pkg:apk/alpine/libbz2@1.0.8-r6?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.0.8-r6",
+     "Arch": "x86_64",
+     "SrcName": "bzip2",
+     "SrcVersion": "1.0.8-r6",
+     "Licenses": [
+      "bzip-2-1.0.6"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:08566ba5c7af97c25474be8b24e8b48f0116b67d"
+    },
+    {
+     "ID": "libcrypto3@3.5.9-r0",
+     "Name": "libcrypto3",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libcrypto3@3.5.9-r0?arch=x86_64&distro=3.24.3",
+      "UID": "f047b53a9a4a8dde",
+      "BOMRef": "pkg:apk/alpine/libcrypto3@3.5.9-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "3.5.9-r0",
+     "Arch": "x86_64",
+     "SrcName": "openssl",
+     "SrcVersion": "3.5.9-r0",
+     "Licenses": [
+      "Apache-2.0"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:1c0dee9734cf22fc97cdd181913bbd710e6dfb08"
+    },
+    {
+     "ID": "libcurl@8.22.0-r0",
+     "Name": "libcurl",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libcurl@8.22.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "2be7243ac301b63",
+      "BOMRef": "pkg:apk/alpine/libcurl@8.22.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "8.22.0-r0",
+     "Arch": "x86_64",
+     "SrcName": "curl",
+     "SrcVersion": "8.22.0-r0",
+     "Licenses": [
+      "curl"
+     ],
+     "DependsOn": [
+      "brotli-libs@1.2.0-r1",
+      "c-ares@1.34.9-r0",
+      "ca-certificates-bundle@20261020-r0",
+      "libcrypto3@3.5.9-r0",
+      "libidn2@2.3.8-r0",
+      "libpsl@0.21.5-r3",
+      "libssl3@3.5.9-r0",
+      "musl@1.2.6-r3",
+      "nghttp2-libs@1.70.0-r0",
+      "zlib@1.3.2-r1",
+      "zstd-libs@1.5.7-r2"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:7816006b6af2270ab6e7e85f74adb94c16bdc48b"
+    },
+    {
+     "ID": "libdav1d@1.5.3-r0",
+     "Name": "libdav1d",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libdav1d@1.5.3-r0?arch=x86_64&distro=3.24.3",
+      "UID": "9f3a6db67c7be16d",
+      "BOMRef": "pkg:apk/alpine/libdav1d@1.5.3-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.5.3-r0",
+     "Arch": "x86_64",
+     "SrcName": "dav1d",
+     "SrcVersion": "1.5.3-r0",
+     "Licenses": [
+      "BSD-2-Clause"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:f50308906e3796f040689e3c80119b583946bca6"
+    },
+    {
+     "ID": "libedit@20260508.3.1-r1",
+     "Name": "libedit",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libedit@20260508.3.1-r1?arch=x86_64&distro=3.24.3",
+      "UID": "8d799282b2788355",
+      "BOMRef": "pkg:apk/alpine/libedit@20260508.3.1-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "20260508.3.1-r1",
+     "Arch": "x86_64",
+     "SrcName": "libedit",
+     "SrcVersion": "20260508.3.1-r1",
+     "Licenses": [
+      "BSD-3-Clause"
+     ],
+     "DependsOn": [
+      "libncursesw@6.6_p20260516-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:4084f8ff8e83fe17ce0c9ec3f313604d6adc7481"
+    },
+    {
+     "ID": "libexpat@2.9.0-r0",
+     "Name": "libexpat",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libexpat@2.9.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "6c76b214d1a89ca5",
+      "BOMRef": "pkg:apk/alpine/libexpat@2.9.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "2.9.0-r0",
+     "Arch": "x86_64",
+     "SrcName": "expat",
+     "SrcVersion": "2.9.0-r0",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:b6e82faa7913a63da771bbddaa6ad38842047f78"
+    },
+    {
+     "ID": "libgcc@15.2.0-r5",
+     "Name": "libgcc",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libgcc@15.2.0-r5?arch=x86_64&distro=3.24.3",
+      "UID": "c2205ada32e7bd90",
+      "BOMRef": "pkg:apk/alpine/libgcc@15.2.0-r5?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "15.2.0-r5",
+     "Arch": "x86_64",
+     "SrcName": "gcc",
+     "SrcVersion": "15.2.0-r5",
+     "Licenses": [
+      "GPL-2.0-or-later",
+      "LGPL-2.1-or-later"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:379c156c53e0cc140e87c79c0a3dd22b6ee51552"
+    },
+    {
+     "ID": "libgd@2.3.3-r10",
+     "Name": "libgd",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libgd@2.3.3-r10?arch=x86_64&distro=3.24.3",
+      "UID": "ccfdc7adcbdf3c85",
+      "BOMRef": "pkg:apk/alpine/libgd@2.3.3-r10?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "2.3.3-r10",
+     "Arch": "x86_64",
+     "SrcName": "gd",
+     "SrcVersion": "2.3.3-r10",
+     "Licenses": [
+      "GD"
+     ],
+     "DependsOn": [
+      "fontconfig@2.17.1-r1",
+      "freetype@2.14.3-r0",
+      "libavif@1.4.1-r0",
+      "libjpeg-turbo@3.1.3-r0",
+      "libpng@1.6.59-r0",
+      "libwebp@1.6.0-r0",
+      "libxpm@3.5.20-r0",
+      "musl@1.2.6-r3",
+      "tiff@4.7.2-r0",
+      "zlib@1.3.2-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:9162e2908def65ba3eae4d96a633dd0b8e9a4898"
+    },
+    {
+     "ID": "libice@1.1.2-r0",
+     "Name": "libice",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libice@1.1.2-r0?arch=x86_64&distro=3.24.3",
+      "UID": "785c1c792de4b189",
+      "BOMRef": "pkg:apk/alpine/libice@1.1.2-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.1.2-r0",
+     "Arch": "x86_64",
+     "SrcName": "libice",
+     "SrcVersion": "1.1.2-r0",
+     "Licenses": [
+      "X-11"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:82a7d595004c39c8f1ef4cdae1573c791690a05d"
+    },
+    {
+     "ID": "libidn2@2.3.8-r0",
+     "Name": "libidn2",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libidn2@2.3.8-r0?arch=x86_64&distro=3.24.3",
+      "UID": "eed1c6a25a91da5c",
+      "BOMRef": "pkg:apk/alpine/libidn2@2.3.8-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "2.3.8-r0",
+     "Arch": "x86_64",
+     "SrcName": "libidn2",
+     "SrcVersion": "2.3.8-r0",
+     "Licenses": [
+      "GPL-2.0-or-later",
+      "LGPL-3.0-or-later"
+     ],
+     "DependsOn": [
+      "libunistring@1.4.2-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:5800d14ce89e16148f4ccc2df74235ce7aedf800"
+    },
+    {
+     "ID": "libintl@1.0-r0",
+     "Name": "libintl",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libintl@1.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "641ee09f12b4b7a5",
+      "BOMRef": "pkg:apk/alpine/libintl@1.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.0-r0",
+     "Arch": "x86_64",
+     "SrcName": "gettext",
+     "SrcVersion": "1.0-r0",
+     "Licenses": [
+      "LGPL-2.1-or-later"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:12b85cff06fd7d383d36a9c96503fe049c9d4bf3dfda5cbb9ffa6ae99b9c07a6",
+      "DiffID": "sha256:347d70688a4f620ee434007bc3b622592c459d0c45cbc275d0c8c3db0d2cb3e5"
+     },
+     "Digest": "sha1:282d6642ccac87237e43a864159d73cf5abe7550"
+    },
+    {
+     "ID": "libjpeg-turbo@3.1.3-r0",
+     "Name": "libjpeg-turbo",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libjpeg-turbo@3.1.3-r0?arch=x86_64&distro=3.24.3",
+      "UID": "160779adeb57b0fa",
+      "BOMRef": "pkg:apk/alpine/libjpeg-turbo@3.1.3-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "3.1.3-r0",
+     "Arch": "x86_64",
+     "SrcName": "libjpeg-turbo",
+     "SrcVersion": "3.1.3-r0",
+     "Licenses": [
+      "BSD-3-Clause",
+      "IJG",
+      "Zlib"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:5e85183c052743916cd987c8c305b7709accbbd9"
+    },
+    {
+     "ID": "libmaxminddb-libs@1.13.3-r0",
+     "Name": "libmaxminddb-libs",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libmaxminddb-libs@1.13.3-r0?arch=x86_64&distro=3.24.3",
+      "UID": "88d0200a92dcefd0",
+      "BOMRef": "pkg:apk/alpine/libmaxminddb-libs@1.13.3-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.13.3-r0",
+     "Arch": "x86_64",
+     "SrcName": "libmaxminddb",
+     "SrcVersion": "1.13.3-r0",
+     "Licenses": [
+      "Apache-2.0"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:e485badcafb15ddf630cdde7e7accf4ca603292c"
+    },
+    {
+     "ID": "libmd@1.2.0-r0",
+     "Name": "libmd",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libmd@1.2.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "2ddc47fe5931563d",
+      "BOMRef": "pkg:apk/alpine/libmd@1.2.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.2.0-r0",
+     "Arch": "x86_64",
+     "SrcName": "libmd",
+     "SrcVersion": "1.2.0-r0",
+     "Licenses": [
+      "BSD-3-Clause",
+      "BSD-2-Clause",
+      "ISC",
+      "Beerware",
+      "Public",
+      "Domain"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:3478a5f1c2bb99b8e01fe9f04d175c2ae86e0bf3"
+    },
+    {
+     "ID": "libncursesw@6.6_p20260516-r0",
+     "Name": "libncursesw",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libncursesw@6.6_p20260516-r0?arch=x86_64&distro=3.24.3",
+      "UID": "a36cbc5d24075ea2",
+      "BOMRef": "pkg:apk/alpine/libncursesw@6.6_p20260516-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "6.6_p20260516-r0",
+     "Arch": "x86_64",
+     "SrcName": "ncurses",
+     "SrcVersion": "6.6_p20260516-r0",
+     "Licenses": [
+      "X-11"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3",
+      "ncurses-terminfo-base@6.6_p20260516-r0"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:9f318e6e324d6827274829194cf6ac6afbaded12"
+    },
+    {
+     "ID": "libpng@1.6.59-r0",
+     "Name": "libpng",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libpng@1.6.59-r0?arch=x86_64&distro=3.24.3",
+      "UID": "a7f51a2da8e85478",
+      "BOMRef": "pkg:apk/alpine/libpng@1.6.59-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.6.59-r0",
+     "Arch": "x86_64",
+     "SrcName": "libpng",
+     "SrcVersion": "1.6.59-r0",
+     "Licenses": [
+      "Libpng"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3",
+      "zlib@1.3.2-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:aadb0fae1f673f7f57c582ef75714050eca43b92"
+    },
+    {
+     "ID": "libpsl@0.21.5-r3",
+     "Name": "libpsl",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libpsl@0.21.5-r3?arch=x86_64&distro=3.24.3",
+      "UID": "a598828fa782c781",
+      "BOMRef": "pkg:apk/alpine/libpsl@0.21.5-r3?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "0.21.5-r3",
+     "Arch": "x86_64",
+     "SrcName": "libpsl",
+     "SrcVersion": "0.21.5-r3",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "libidn2@2.3.8-r0",
+      "libunistring@1.4.2-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:a551ddd5d6cb3913e1a1f47b02f21ae068b5e90a"
+    },
+    {
+     "ID": "libsharpyuv@1.6.0-r0",
+     "Name": "libsharpyuv",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libsharpyuv@1.6.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "5850939526db3f61",
+      "BOMRef": "pkg:apk/alpine/libsharpyuv@1.6.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.6.0-r0",
+     "Arch": "x86_64",
+     "SrcName": "libwebp",
+     "SrcVersion": "1.6.0-r0",
+     "Licenses": [
+      "BSD-3-Clause"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:b6b67d8faf3331da87f2d4bf44268a63fc189249"
+    },
+    {
+     "ID": "libsm@1.2.6-r0",
+     "Name": "libsm",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libsm@1.2.6-r0?arch=x86_64&distro=3.24.3",
+      "UID": "63422876516d3924",
+      "BOMRef": "pkg:apk/alpine/libsm@1.2.6-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.2.6-r0",
+     "Arch": "x86_64",
+     "SrcName": "libsm",
+     "SrcVersion": "1.2.6-r0",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "libice@1.1.2-r0",
+      "libuuid@2.42.3-r1",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:ac1a8703aa0fe2556edb133092921bb90f89c6c3"
+    },
+    {
+     "ID": "libssl3@3.5.9-r0",
+     "Name": "libssl3",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libssl3@3.5.9-r0?arch=x86_64&distro=3.24.3",
+      "UID": "d4652bfbe9bfcf05",
+      "BOMRef": "pkg:apk/alpine/libssl3@3.5.9-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "3.5.9-r0",
+     "Arch": "x86_64",
+     "SrcName": "openssl",
+     "SrcVersion": "3.5.9-r0",
+     "Licenses": [
+      "Apache-2.0"
+     ],
+     "DependsOn": [
+      "libcrypto3@3.5.9-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:20c4c90ea9d20a9dd3a04deadf2c6c4f64233643"
+    },
+    {
+     "ID": "libstdc++@15.2.0-r5",
+     "Name": "libstdc++",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libstdc%2B%2B@15.2.0-r5?arch=x86_64&distro=3.24.3",
+      "UID": "1a64057308285d51",
+      "BOMRef": "pkg:apk/alpine/libstdc%2B%2B@15.2.0-r5?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "15.2.0-r5",
+     "Arch": "x86_64",
+     "SrcName": "gcc",
+     "SrcVersion": "15.2.0-r5",
+     "Licenses": [
+      "GPL-2.0-or-later",
+      "LGPL-2.1-or-later"
+     ],
+     "DependsOn": [
+      "libgcc@15.2.0-r5",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:5f7a2ad7646128ba02cc0d6fb94672b6845648d5"
+    },
+    {
+     "ID": "libunistring@1.4.2-r0",
+     "Name": "libunistring",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libunistring@1.4.2-r0?arch=x86_64&distro=3.24.3",
+      "UID": "6971edb13101652e",
+      "BOMRef": "pkg:apk/alpine/libunistring@1.4.2-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.4.2-r0",
+     "Arch": "x86_64",
+     "SrcName": "libunistring",
+     "SrcVersion": "1.4.2-r0",
+     "Licenses": [
+      "GPL-2.0-or-later",
+      "LGPL-3.0-or-later"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:f509c801d070f8ea9f7400d5093c888ff1fee02e"
+    },
+    {
+     "ID": "libuuid@2.42.3-r1",
+     "Name": "libuuid",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libuuid@2.42.3-r1?arch=x86_64&distro=3.24.3",
+      "UID": "6fa11df6d97de577",
+      "BOMRef": "pkg:apk/alpine/libuuid@2.42.3-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "2.42.3-r1",
+     "Arch": "x86_64",
+     "SrcName": "util-linux",
+     "SrcVersion": "2.42.3-r1",
+     "Licenses": [
+      "BSD-3-Clause"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:8f041ef637ad75f381cc0c034f2afbbb0303264e"
+    },
+    {
+     "ID": "libwebp@1.6.0-r0",
+     "Name": "libwebp",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libwebp@1.6.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "3e8f8fa9a24023ff",
+      "BOMRef": "pkg:apk/alpine/libwebp@1.6.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.6.0-r0",
+     "Arch": "x86_64",
+     "SrcName": "libwebp",
+     "SrcVersion": "1.6.0-r0",
+     "Licenses": [
+      "BSD-3-Clause"
+     ],
+     "DependsOn": [
+      "libsharpyuv@1.6.0-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:47c88e69c4cefde61d94174ace8b11b5298712ca"
+    },
+    {
+     "ID": "libx11@1.8.14-r0",
+     "Name": "libx11",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libx11@1.8.14-r0?arch=x86_64&distro=3.24.3",
+      "UID": "ee76e1cd062bb1e0",
+      "BOMRef": "pkg:apk/alpine/libx11@1.8.14-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.8.14-r0",
+     "Arch": "x86_64",
+     "SrcName": "libx11",
+     "SrcVersion": "1.8.14-r0",
+     "Licenses": [
+      "X-11"
+     ],
+     "DependsOn": [
+      "libxcb@1.17.0-r2",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:903bb9991efb9e31ebd48e7382337f853ea9e101"
+    },
+    {
+     "ID": "libxau@1.0.12-r0",
+     "Name": "libxau",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libxau@1.0.12-r0?arch=x86_64&distro=3.24.3",
+      "UID": "ba297f7721d90dc5",
+      "BOMRef": "pkg:apk/alpine/libxau@1.0.12-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.0.12-r0",
+     "Arch": "x86_64",
+     "SrcName": "libxau",
+     "SrcVersion": "1.0.12-r0",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:4fb62db473242458df6bcd46ff3ad08d2aa88038"
+    },
+    {
+     "ID": "libxcb@1.17.0-r2",
+     "Name": "libxcb",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libxcb@1.17.0-r2?arch=x86_64&distro=3.24.3",
+      "UID": "659243a266239215",
+      "BOMRef": "pkg:apk/alpine/libxcb@1.17.0-r2?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.17.0-r2",
+     "Arch": "x86_64",
+     "SrcName": "libxcb",
+     "SrcVersion": "1.17.0-r2",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "libxau@1.0.12-r0",
+      "libxdmcp@1.1.5-r1",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:8caa749e0d2fc4788e0706930262ac81d9cd0e10"
+    },
+    {
+     "ID": "libxdmcp@1.1.5-r1",
+     "Name": "libxdmcp",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libxdmcp@1.1.5-r1?arch=x86_64&distro=3.24.3",
+      "UID": "6a99891c48e8b41a",
+      "BOMRef": "pkg:apk/alpine/libxdmcp@1.1.5-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.1.5-r1",
+     "Arch": "x86_64",
+     "SrcName": "libxdmcp",
+     "SrcVersion": "1.1.5-r1",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "libbsd@0.12.2-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:204e413c0222b6ae7a94adc53b9057d3536fd200"
+    },
+    {
+     "ID": "libxext@1.3.7-r0",
+     "Name": "libxext",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libxext@1.3.7-r0?arch=x86_64&distro=3.24.3",
+      "UID": "f48ec59567041efe",
+      "BOMRef": "pkg:apk/alpine/libxext@1.3.7-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.3.7-r0",
+     "Arch": "x86_64",
+     "SrcName": "libxext",
+     "SrcVersion": "1.3.7-r0",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "libx11@1.8.14-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:6f631e2b33b664a546b3a1a7dd65805b8776bef0"
+    },
+    {
+     "ID": "libxml2@2.13.9-r2",
+     "Name": "libxml2",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libxml2@2.13.9-r2?arch=x86_64&distro=3.24.3",
+      "UID": "df6168a5b80ac119",
+      "BOMRef": "pkg:apk/alpine/libxml2@2.13.9-r2?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "2.13.9-r2",
+     "Arch": "x86_64",
+     "SrcName": "libxml2",
+     "SrcVersion": "2.13.9-r2",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3",
+      "xz-libs@5.8.4-r0",
+      "zlib@1.3.2-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:c2c2cb44647ddc8c82ae78c8aca9bd4ad5a736da"
+    },
+    {
+     "ID": "libxpm@3.5.20-r0",
+     "Name": "libxpm",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libxpm@3.5.20-r0?arch=x86_64&distro=3.24.3",
+      "UID": "f1039c9959a4cee2",
+      "BOMRef": "pkg:apk/alpine/libxpm@3.5.20-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "3.5.20-r0",
+     "Arch": "x86_64",
+     "SrcName": "libxpm",
+     "SrcVersion": "3.5.20-r0",
+     "Licenses": [
+      "X-11"
+     ],
+     "DependsOn": [
+      "libx11@1.8.14-r0",
+      "libxext@1.3.7-r0",
+      "libxt@1.3.1-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:f8a08a4f7d1e606d76959f9693fcb5d0c8d01445"
+    },
+    {
+     "ID": "libxslt@1.1.43-r3",
+     "Name": "libxslt",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libxslt@1.1.43-r3?arch=x86_64&distro=3.24.3",
+      "UID": "4862fd3053aa574d",
+      "BOMRef": "pkg:apk/alpine/libxslt@1.1.43-r3?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.1.43-r3",
+     "Arch": "x86_64",
+     "SrcName": "libxslt",
+     "SrcVersion": "1.1.43-r3",
+     "Licenses": [
+      "X-11"
+     ],
+     "DependsOn": [
+      "libxml2@2.13.9-r2",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:a78a1c96aa4f4a763ab8d2eeb285734c0387eb31"
+    },
+    {
+     "ID": "libxt@1.3.1-r0",
+     "Name": "libxt",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libxt@1.3.1-r0?arch=x86_64&distro=3.24.3",
+      "UID": "f3eaed1633271643",
+      "BOMRef": "pkg:apk/alpine/libxt@1.3.1-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.3.1-r0",
+     "Arch": "x86_64",
+     "SrcName": "libxt",
+     "SrcVersion": "1.3.1-r0",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "libice@1.1.2-r0",
+      "libsm@1.2.6-r0",
+      "libx11@1.8.14-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:1b19464c0af82fa14093545440f5555d67c8abba"
+    },
+    {
+     "ID": "libyuv@0.0.1928-r0",
+     "Name": "libyuv",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/libyuv@0.0.1928-r0?arch=x86_64&distro=3.24.3",
+      "UID": "a2b8b9f935280e67",
+      "BOMRef": "pkg:apk/alpine/libyuv@0.0.1928-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "0.0.1928-r0",
+     "Arch": "x86_64",
+     "SrcName": "libyuv",
+     "SrcVersion": "0.0.1928-r0",
+     "Licenses": [
+      "BSD-3-Clause"
+     ],
+     "DependsOn": [
+      "libgcc@15.2.0-r5",
+      "libjpeg-turbo@3.1.3-r0",
+      "libstdc++@15.2.0-r5",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:dcc5f358574313ac919f9642813831ef30016db0"
+    },
+    {
+     "ID": "musl@1.2.6-r3",
+     "Name": "musl",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/musl@1.2.6-r3?arch=x86_64&distro=3.24.3",
+      "UID": "ff1595141e09a1ff",
+      "BOMRef": "pkg:apk/alpine/musl@1.2.6-r3?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.2.6-r3",
+     "Arch": "x86_64",
+     "SrcName": "musl",
+     "SrcVersion": "1.2.6-r3",
+     "Licenses": [
+      "MIT"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:770e8304d958dced98d76997df9e8fa1db5ca32f"
+    },
+    {
+     "ID": "musl-utils@1.2.6-r3",
+     "Name": "musl-utils",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/musl-utils@1.2.6-r3?arch=x86_64&distro=3.24.3",
+      "UID": "29575cf7d249ffd8",
+      "BOMRef": "pkg:apk/alpine/musl-utils@1.2.6-r3?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.2.6-r3",
+     "Arch": "x86_64",
+     "SrcName": "musl",
+     "SrcVersion": "1.2.6-r3",
+     "Licenses": [
+      "MIT",
+      "BSD-2-Clause",
+      "GPL-2.0-or-later"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3",
+      "scanelf@1.3.9-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:51372daafb234646960eca4d7a13f706324f24d6"
+    },
+    {
+     "ID": "ncurses-terminfo-base@6.6_p20260516-r0",
+     "Name": "ncurses-terminfo-base",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/ncurses-terminfo-base@6.6_p20260516-r0?arch=x86_64&distro=3.24.3",
+      "UID": "5e475ad7d7b6a451",
+      "BOMRef": "pkg:apk/alpine/ncurses-terminfo-base@6.6_p20260516-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "6.6_p20260516-r0",
+     "Arch": "x86_64",
+     "SrcName": "ncurses",
+     "SrcVersion": "6.6_p20260516-r0",
+     "Licenses": [
+      "X-11"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:9d551d828e9c8ee52c5801c1d6046828ebf15752"
+    },
+    {
+     "ID": "nghttp2-libs@1.70.0-r0",
+     "Name": "nghttp2-libs",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/nghttp2-libs@1.70.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "ece90ed5240b8aa6",
+      "BOMRef": "pkg:apk/alpine/nghttp2-libs@1.70.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.70.0-r0",
+     "Arch": "x86_64",
+     "SrcName": "nghttp2",
+     "SrcVersion": "1.70.0-r0",
+     "Licenses": [
+      "MIT"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:63bd319b9af1c3d3c730c96b04a889964696f367"
+    },
+    {
+     "ID": "nginx@1.31.8-r1",
+     "Name": "nginx",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/nginx@1.31.8-r1?arch=x86_64&distro=3.24.3",
+      "UID": "f086b3bb1c783790",
+      "BOMRef": "pkg:apk/alpine/nginx@1.31.8-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.31.8-r1",
+     "Arch": "x86_64",
+     "SrcName": "nginx",
+     "SrcVersion": "1.31.8-r1",
+     "Licenses": [
+      "2-clause",
+      "BSD-3-Clause",
+      "license"
+     ],
+     "DependsOn": [
+      "busybox-binsh@1.37.0-r31",
+      "libcrypto3@3.5.9-r0",
+      "libssl3@3.5.9-r0",
+      "musl@1.2.6-r3",
+      "pcre2@10.49-r0",
+      "zlib@1.3.2-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:12b85cff06fd7d383d36a9c96503fe049c9d4bf3dfda5cbb9ffa6ae99b9c07a6",
+      "DiffID": "sha256:347d70688a4f620ee434007bc3b622592c459d0c45cbc275d0c8c3db0d2cb3e5"
+     },
+     "Digest": "sha1:222655f805045ed4429d6f28e10861d93061f892"
+    },
+    {
+     "ID": "nginx-module-acme@1.31.8.0.4.1-r1",
+     "Name": "nginx-module-acme",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/nginx-module-acme@1.31.8.0.4.1-r1?arch=x86_64&distro=3.24.3",
+      "UID": "38c62b3f033c2937",
+      "BOMRef": "pkg:apk/alpine/nginx-module-acme@1.31.8.0.4.1-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.31.8.0.4.1-r1",
+     "Arch": "x86_64",
+     "SrcName": "nginx-module-acme",
+     "SrcVersion": "1.31.8.0.4.1-r1",
+     "Licenses": [
+      "2-clause",
+      "BSD-3-Clause",
+      "license"
+     ],
+     "DependsOn": [
+      "busybox-binsh@1.37.0-r31",
+      "libgcc@15.2.0-r5",
+      "musl@1.2.6-r3",
+      "nginx@1.31.8-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:066647c11c8b97314b45d77ff9f3c8fe1deeb133"
+    },
+    {
+     "ID": "nginx-module-geoip@1.31.8-r1",
+     "Name": "nginx-module-geoip",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/nginx-module-geoip@1.31.8-r1?arch=x86_64&distro=3.24.3",
+      "UID": "6f5317fb0687149",
+      "BOMRef": "pkg:apk/alpine/nginx-module-geoip@1.31.8-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.31.8-r1",
+     "Arch": "x86_64",
+     "SrcName": "nginx-module-geoip",
+     "SrcVersion": "1.31.8-r1",
+     "Licenses": [
+      "2-clause",
+      "BSD-3-Clause",
+      "license"
+     ],
+     "DependsOn": [
+      "busybox-binsh@1.37.0-r31",
+      "geoip@1.6.12-r6",
+      "libmaxminddb-libs@1.13.3-r0",
+      "musl@1.2.6-r3",
+      "nginx@1.31.8-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:ef77191d28ee0a31a29cdd59b0b011e0377bbd37"
+    },
+    {
+     "ID": "nginx-module-image-filter@1.31.8-r1",
+     "Name": "nginx-module-image-filter",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/nginx-module-image-filter@1.31.8-r1?arch=x86_64&distro=3.24.3",
+      "UID": "bc7defd3513837a4",
+      "BOMRef": "pkg:apk/alpine/nginx-module-image-filter@1.31.8-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.31.8-r1",
+     "Arch": "x86_64",
+     "SrcName": "nginx-module-image-filter",
+     "SrcVersion": "1.31.8-r1",
+     "Licenses": [
+      "2-clause",
+      "BSD-3-Clause",
+      "license"
+     ],
+     "DependsOn": [
+      "busybox-binsh@1.37.0-r31",
+      "libgd@2.3.3-r10",
+      "musl@1.2.6-r3",
+      "nginx@1.31.8-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:7612ab8d19247d87635e952dfe32efcc2777a110"
+    },
+    {
+     "ID": "nginx-module-njs@1.31.8.1.0.2-r1",
+     "Name": "nginx-module-njs",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/nginx-module-njs@1.31.8.1.0.2-r1?arch=x86_64&distro=3.24.3",
+      "UID": "c2abd4ecd2221387",
+      "BOMRef": "pkg:apk/alpine/nginx-module-njs@1.31.8.1.0.2-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.31.8.1.0.2-r1",
+     "Arch": "x86_64",
+     "SrcName": "nginx-module-njs",
+     "SrcVersion": "1.31.8.1.0.2-r1",
+     "Licenses": [
+      "2-clause",
+      "BSD-3-Clause",
+      "license"
+     ],
+     "DependsOn": [
+      "busybox-binsh@1.37.0-r31",
+      "libcrypto3@3.5.9-r0",
+      "libedit@20260508.3.1-r1",
+      "libxml2@2.13.9-r2",
+      "musl@1.2.6-r3",
+      "nginx@1.31.8-r1",
+      "pcre2@10.49-r0",
+      "zlib@1.3.2-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:cb22a44e8a0400fdee1ff7ddcd9d124dc85920bf"
+    },
+    {
+     "ID": "nginx-module-xslt@1.31.8-r1",
+     "Name": "nginx-module-xslt",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/nginx-module-xslt@1.31.8-r1?arch=x86_64&distro=3.24.3",
+      "UID": "5688029722b959c1",
+      "BOMRef": "pkg:apk/alpine/nginx-module-xslt@1.31.8-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.31.8-r1",
+     "Arch": "x86_64",
+     "SrcName": "nginx-module-xslt",
+     "SrcVersion": "1.31.8-r1",
+     "Licenses": [
+      "2-clause",
+      "BSD-3-Clause",
+      "license"
+     ],
+     "DependsOn": [
+      "busybox-binsh@1.37.0-r31",
+      "libxml2@2.13.9-r2",
+      "libxslt@1.1.43-r3",
+      "musl@1.2.6-r3",
+      "nginx@1.31.8-r1"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:326ff33aab651479b1f7ba3db51d5f507330d0ff"
+    },
+    {
+     "ID": "pcre2@10.49-r0",
+     "Name": "pcre2",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/pcre2@10.49-r0?arch=x86_64&distro=3.24.3",
+      "UID": "e7dd76321ba14f39",
+      "BOMRef": "pkg:apk/alpine/pcre2@10.49-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "10.49-r0",
+     "Arch": "x86_64",
+     "SrcName": "pcre2",
+     "SrcVersion": "10.49-r0",
+     "Licenses": [
+      "BSD-3-Clause"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:12b85cff06fd7d383d36a9c96503fe049c9d4bf3dfda5cbb9ffa6ae99b9c07a6",
+      "DiffID": "sha256:347d70688a4f620ee434007bc3b622592c459d0c45cbc275d0c8c3db0d2cb3e5"
+     },
+     "Digest": "sha1:ec992b00baf71bba1dd9e2179613f9233af35c8d"
+    },
+    {
+     "ID": "scanelf@1.3.9-r1",
+     "Name": "scanelf",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/scanelf@1.3.9-r1?arch=x86_64&distro=3.24.3",
+      "UID": "ae63ed9e6dffc3f2",
+      "BOMRef": "pkg:apk/alpine/scanelf@1.3.9-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.3.9-r1",
+     "Arch": "x86_64",
+     "SrcName": "pax-utils",
+     "SrcVersion": "1.3.9-r1",
+     "Licenses": [
+      "GPL-2.0-only"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:013f903d0ba219673aebbdd04f74bb5ed82b01f0"
+    },
+    {
+     "ID": "ssl_client@1.37.0-r31",
+     "Name": "ssl_client",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/ssl_client@1.37.0-r31?arch=x86_64&distro=3.24.3",
+      "UID": "cbb4bc795d8f268b",
+      "BOMRef": "pkg:apk/alpine/ssl_client@1.37.0-r31?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.37.0-r31",
+     "Arch": "x86_64",
+     "SrcName": "busybox",
+     "SrcVersion": "1.37.0-r31",
+     "Licenses": [
+      "GPL-2.0-only"
+     ],
+     "DependsOn": [
+      "libcrypto3@3.5.9-r0",
+      "libssl3@3.5.9-r0",
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:c220f4a5125a313af733e98def94132bb1e9d40d"
+    },
+    {
+     "ID": "tiff@4.7.2-r0",
+     "Name": "tiff",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/tiff@4.7.2-r0?arch=x86_64&distro=3.24.3",
+      "UID": "22d5445841aacccd",
+      "BOMRef": "pkg:apk/alpine/tiff@4.7.2-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "4.7.2-r0",
+     "Arch": "x86_64",
+     "SrcName": "tiff",
+     "SrcVersion": "4.7.2-r0",
+     "Licenses": [
+      "libtiff"
+     ],
+     "DependsOn": [
+      "libjpeg-turbo@3.1.3-r0",
+      "libwebp@1.6.0-r0",
+      "musl@1.2.6-r3",
+      "zlib@1.3.2-r1",
+      "zstd-libs@1.5.7-r2"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:018e1b7069199c5d6414a9c3191b0b0e7b99546c"
+    },
+    {
+     "ID": "tzdata@2026e-r0",
+     "Name": "tzdata",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/tzdata@2026e-r0?arch=x86_64&distro=3.24.3",
+      "UID": "e6d3d7c585ed1727",
+      "BOMRef": "pkg:apk/alpine/tzdata@2026e-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "2026e-r0",
+     "Arch": "x86_64",
+     "SrcName": "tzdata",
+     "SrcVersion": "2026e-r0",
+     "Licenses": [
+      "Public-Domain"
+     ],
+     "Layer": {
+      "Digest": "sha256:12b85cff06fd7d383d36a9c96503fe049c9d4bf3dfda5cbb9ffa6ae99b9c07a6",
+      "DiffID": "sha256:347d70688a4f620ee434007bc3b622592c459d0c45cbc275d0c8c3db0d2cb3e5"
+     },
+     "Digest": "sha1:f0e583fbc59bdeb44ff11df175529ae485353465"
+    },
+    {
+     "ID": "xz-libs@5.8.4-r0",
+     "Name": "xz-libs",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/xz-libs@5.8.4-r0?arch=x86_64&distro=3.24.3",
+      "UID": "ca11c2e0dd4bad67",
+      "BOMRef": "pkg:apk/alpine/xz-libs@5.8.4-r0?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "5.8.4-r0",
+     "Arch": "x86_64",
+     "SrcName": "xz",
+     "SrcVersion": "5.8.4-r0",
+     "Licenses": [
+      "GPL-2.0-or-later",
+      "0BSD",
+      "Public-Domain",
+      "LGPL-2.1-or-later"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:8501065b1862821630174c663b45974462c296e1"
+    },
+    {
+     "ID": "zlib@1.3.2-r1",
+     "Name": "zlib",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/zlib@1.3.2-r1?arch=x86_64&distro=3.24.3",
+      "UID": "1de44de733aa9db1",
+      "BOMRef": "pkg:apk/alpine/zlib@1.3.2-r1?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.3.2-r1",
+     "Arch": "x86_64",
+     "SrcName": "zlib",
+     "SrcVersion": "1.3.2-r1",
+     "Licenses": [
+      "Zlib"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:7b229517ed222597277036d94892173207d01a731ab3a88eeb1de2e963a2c788",
+      "DiffID": "sha256:75c137aedfb2760f88629236cb7b797630aed0c3d91d626d1d1bb694878fc2ba"
+     },
+     "Digest": "sha1:4f525c8cc204f84b8b4ca40db3be389958f056c6"
+    },
+    {
+     "ID": "zstd-libs@1.5.7-r2",
+     "Name": "zstd-libs",
+     "Identifier": {
+      "PURL": "pkg:apk/alpine/zstd-libs@1.5.7-r2?arch=x86_64&distro=3.24.3",
+      "UID": "84f749212ce57efe",
+      "BOMRef": "pkg:apk/alpine/zstd-libs@1.5.7-r2?arch=x86_64&distro=3.24.3"
+     },
+     "Version": "1.5.7-r2",
+     "Arch": "x86_64",
+     "SrcName": "zstd",
+     "SrcVersion": "1.5.7-r2",
+     "Licenses": [
+      "BSD-3-Clause",
+      "GPL-2.0-or-later"
+     ],
+     "DependsOn": [
+      "musl@1.2.6-r3"
+     ],
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "Digest": "sha1:9569ce3a97c4109e8e53ddde9f3e1bd272613540"
+    }
+   ],
+   "Vulnerabilities": [
+    {
+     "VulnerabilityID": "CVE-2026-111497",
+     "PkgID": "brotli-libs@1.2.0-r1",
+     "PkgName": "brotli-libs",
+     "PkgIdentifier": {
+      "PURL": "pkg:apk/alpine/brotli-libs@1.2.0-r1?arch=x86_64&distro=3.24.3",
+      "UID": "e13c05a181590bda",
+      "BOMRef": "pkg:apk/alpine/brotli-libs@1.2.0-r1?arch=x86_64&distro=3.24.3"
+     },
+     "InstalledVersion": "1.2.0-r1",
+     "FixedVersion": "1.2.1-r0",
+     "Status": "fixed",
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "SeveritySource": "nvd",
+     "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-111497",
+     "DataSource": {
+      "ID": "alpine",
+      "Name": "Alpine Secdb",
+      "URL": "https://secdb.alpinelinux.org/"
+     },
+     "Fingerprint": "sha256:b5a3290ba10937d2bc4ea44b4f506bfd335ac4fb2c92cb8d4286df080d43d414",
+     "Title": "brotli: Out-of-Bounds Write in Google Brotli Decoder",
+     "Description": "A buffer overflow vulnerability in the Brotli decoder (c/dec/decode.c) in Google Brotli versions 1.0.3 through 1.2.0 on all platforms allows a remote unauthenticated attacker to corrupt adjacent decoder state memory, disclose sensitive memory contents, cause a denial of service, or potentially execute arbitrary code using a crafted Brotli-compressed stream.\n\n\n\n\n\nUsers need to update any Brotli libraries or binaries between 1.0.3 through 1.2.0 to the latest available version: 1.0.10 or 1.1.1 or 1.2.1.",
+     "Severity": "CRITICAL",
+     "CweIDs": [
+      "CWE-252",
+      "CWE-787"
+     ],
+     "VendorSeverity": {
+      "alma": 3,
+      "amazon": 3,
+      "azure": 4,
+      "bitnami": 4,
+      "ghsa": 4,
+      "nvd": 4,
+      "oracle-oval": 3,
+      "photon": 4,
+      "redhat": 3,
+      "rocky": 3,
+      "ubuntu": 3
+     },
+     "CVSS": {
+      "bitnami": {
+       "V40Vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+       "V40Score": 9.2
+      },
+      "ghsa": {
+       "V40Vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+       "V40Score": 9.2
+      },
+      "nvd": {
+       "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "V3Score": 9.8
+      },
+      "redhat": {
+       "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "V3Score": 8.1
+      }
+     },
+     "References": [
+      "http://www.openwall.com/lists/oss-security/2026/10/23/25",
+      "http://www.openwall.com/lists/oss-security/2026/10/24/6",
+      "http://www.openwall.com/lists/oss-security/2026/10/26/12",
+      "http://www.openwall.com/lists/oss-security/2026/10/26/13",
+      "http://www.openwall.com/lists/oss-security/2026/10/26/16",
+      "https://access.redhat.com/errata/RHSA-2026:90495",
+      "https://access.redhat.com/errata/RHSA-2026:92376",
+      "https://access.redhat.com/security/cve/CVE-2026-111497",
+      "https://advisory.echohq.com/cve/CVE-2026-111497",
+      "https://broccoli2shell.com",
+      "https://bugzilla.redhat.com/2542596",
+      "https://bugzilla.redhat.com/2542700",
+      "https://bugzilla.redhat.com/2542706",
+      "https://bugzilla.redhat.com/2542707",
+      "https://bugzilla.redhat.com/2558973",
+      "https://bugzilla.redhat.com/2559870",
+      "https://bugzilla.redhat.com/2559873",
+      "https://bugzilla.redhat.com/2559875",
+      "https://bugzilla.redhat.com/2560016",
+      "https://bugzilla.redhat.com/2560018",
+      "https://bugzilla.redhat.com/2560019",
+      "https://bugzilla.redhat.com/2560021",
+      "https://bugzilla.redhat.com/2560022",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=2558973",
+      "https://cert-portal.siemens.com/productcert/html/ssa-045512.html",
+      "https://cert-portal.siemens.com/productcert/html/ssa-443410.html",
+      "https://cert-portal.siemens.com/productcert/html/ssa-898633.html",
+      "https://creativecommons.org/licenses/by/4.0/",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-111497",
+      "https://devblogs.microsoft.com/dotnet/dotnet-october-2026-oob-security-updates",
+      "https://ellio.tech/en/blog/node2shell-cve-2026-111497-rce-on-stock-nodejs-builds",
+      "https://ellio.tech/en/blog/node2shell-cve-2026-111497-rce-on-stock-nodejs-builds/",
+      "https://errata.almalinux.org/8/ALSA-2026-92376.html",
+      "https://errata.rockylinux.org/RLSA-2026:90495",
+      "https://github.com/advisories/GHSA-9v8h-qqgm-4m35",
+      "https://github.com/andybalholm/brotli/releases/tag/v1.2.7",
+      "https://github.com/dotnet/announcements/issues/494",
+      "https://github.com/google/brotli",
+      "https://github.com/google/brotli/commit/0ed4268a4401abcb4472096340477cf4af7d1a2b",
+      "https://github.com/google/brotli/commit/50a9b70a4d5e1443fc40927952276b68fffa83a0",
+      "https://github.com/google/brotli/commit/b418fa81c48262a86a95332b0bc6d62c30aa78b6",
+      "https://github.com/google/brotli/commit/da9806362874b9bd4b552a3af360b5d6347beb12",
+      "https://github.com/google/brotli/releases/tag/v1.0.10",
+      "https://github.com/google/brotli/releases/tag/v1.1.1",
+      "https://github.com/google/brotli/releases/tag/v1.2.1",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/brotli/PYSEC-2026-4322.yaml",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/brotlicffi/PYSEC-2026-4323.yaml",
+      "https://linux.oracle.com/cve/CVE-2026-111497.html",
+      "https://linux.oracle.com/errata/ELSA-2026-92492.html",
+      "https://lists.debian.org/debian-lts-announce/2026/10/msg00049.html",
+      "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-114148",
+      "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases",
+      "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases#nodejs-brotli-decoder-out-of-bounds-write-permits-remote-code-execution-cve-2026-111497---high",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-111497",
+      "https://opensourcemalware.com/blog/node2shell-affects-python",
+      "https://patchtheplanet.org/brotli",
+      "https://pypi.org/project/Brotli",
+      "https://pypi.org/project/brotlicffi",
+      "https://ubuntu.com/security/notices/USN-8956-1",
+      "https://ubuntu.com/security/notices/USN-8956-2",
+      "https://ubuntu.com/security/notices/USN-8958-1",
+      "https://www.aikido.dev/blog/node2shell-nodejs-brotli-rce-cve-2026-111497",
+      "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-111497",
+      "https://www.cve.org/CVERecord?id=CVE-2026-111497"
+     ],
+     "PublishedDate": "2026-10-22T14:17:37.19Z",
+     "LastModifiedDate": "2026-10-30T20:30:11.67Z"
+    },
+    {
+     "VulnerabilityID": "CVE-2026-92392",
+     "PkgID": "curl@8.22.0-r0",
+     "PkgName": "curl",
+     "PkgIdentifier": {
+      "PURL": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "8f537a81060cb509",
+      "BOMRef": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "InstalledVersion": "8.22.0-r0",
+     "FixedVersion": "8.23.0-r0",
+     "Status": "fixed",
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-92392",
+     "DataSource": {
+      "ID": "alpine",
+      "Name": "Alpine Secdb",
+      "URL": "https://secdb.alpinelinux.org/"
+     },
+     "Fingerprint": "sha256:387eab3eb27705eeb87b33f3c977c500ec1bbcbd1f9b6b4e6e0b7959f5f699e8",
+     "Title": "curl: curl: HTTP/2 upload Use-After-Free",
+     "Description": "During an upload, curl mishandles HTTP/2 `RST_STREAM` received from the server\n(with reason `HTTP_1_1_REQUIRED` or `REFUSED_STREAM`) leading to a use after\nfree of a `struct Curl_easy` object.",
+     "Severity": "HIGH",
+     "CweIDs": [
+      "CWE-416"
+     ],
+     "VendorSeverity": {
+      "amazon": 3,
+      "redhat": 3,
+      "ubuntu": 3
+     },
+     "CVSS": {
+      "redhat": {
+       "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+       "V3Score": 8.1
+      }
+     },
+     "References": [
+      "http://www.openwall.com/lists/oss-security/2026/10/18/5",
+      "http://www.openwall.com/lists/oss-security/2026/10/18/6",
+      "https://access.redhat.com/security/cve/CVE-2026-92392",
+      "https://curl.se/docs/CVE-2026-92392.html",
+      "https://curl.se/docs/CVE-2026-92392.json",
+      "https://hackerone.com/reports/4030333",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-92392",
+      "https://ubuntu.com/security/notices/USN-8927-1",
+      "https://ubuntu.com/security/notices/USN-8927-2",
+      "https://www.cve.org/CVERecord?id=CVE-2026-92392"
+     ],
+     "PublishedDate": "2026-10-14T08:17:05.997Z",
+     "LastModifiedDate": "2026-10-18T23:16:57.163Z"
+    },
+    {
+     "VulnerabilityID": "CVE-2026-92388",
+     "PkgID": "curl@8.22.0-r0",
+     "PkgName": "curl",
+     "PkgIdentifier": {
+      "PURL": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "8f537a81060cb509",
+      "BOMRef": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "InstalledVersion": "8.22.0-r0",
+     "FixedVersion": "8.23.0-r0",
+     "Status": "fixed",
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-92388",
+     "DataSource": {
+      "ID": "alpine",
+      "Name": "Alpine Secdb",
+      "URL": "https://secdb.alpinelinux.org/"
+     },
+     "Fingerprint": "sha256:19ea53865f2bc2b8aef0fd6b855b7ca476486000d6c9e985fb7f00d0b63d40cd",
+     "Title": "curl: curl: FTP wildcard write callback mixup",
+     "Description": "When an FTP wildcard `LIST` operation fails, libcurl omits the restoration\npath meant for successful listings, leaving the write callback set to the\ninternal listing parser and the write callback data pointing directly to the\neasy handle. Subsequent reuse of this handle triggers an immediate crash, and\ncloning it via `curl_easy_duphandle()` copies this corrupted state into the\nduplicate. If the original handle is subsequently freed, executing a transfer\non the cloned handle causes a heap use-after-free read against the dangling\nhandle reference; alternatively, reusing the original or cloned handle while\nchanging only  `CURLOPT_WRITEDATA` (and omitting `CURLOPT_WRITEFUNCTION`)\nresults in type confusion, forcing the internal parser to interpret incoming\nserver response bytes into memory at the application-supplied write data\npointer.",
+     "Severity": "MEDIUM",
+     "CweIDs": [
+      "CWE-416"
+     ],
+     "VendorSeverity": {
+      "redhat": 2,
+      "ubuntu": 1
+     },
+     "CVSS": {
+      "redhat": {
+       "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:H",
+       "V3Score": 6.5
+      }
+     },
+     "References": [
+      "https://access.redhat.com/security/cve/CVE-2026-92388",
+      "https://curl.se/docs/CVE-2026-92388.html",
+      "https://curl.se/docs/CVE-2026-92388.json",
+      "https://hackerone.com/reports/4022070",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-92388",
+      "https://ubuntu.com/security/notices/USN-8927-1",
+      "https://ubuntu.com/security/notices/USN-8927-2",
+      "https://ubuntu.com/security/notices/USN-8932-1",
+      "https://www.cve.org/CVERecord?id=CVE-2026-92388"
+     ],
+     "PublishedDate": "2026-10-20T21:17:21.243Z",
+     "LastModifiedDate": "2026-10-30T13:20:53.227Z"
+    },
+    {
+     "VulnerabilityID": "CVE-2026-107928",
+     "PkgID": "curl@8.22.0-r0",
+     "PkgName": "curl",
+     "PkgIdentifier": {
+      "PURL": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "8f537a81060cb509",
+      "BOMRef": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "InstalledVersion": "8.22.0-r0",
+     "FixedVersion": "8.23.0-r0",
+     "Status": "fixed",
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-107928",
+     "DataSource": {
+      "ID": "alpine",
+      "Name": "Alpine Secdb",
+      "URL": "https://secdb.alpinelinux.org/"
+     },
+     "Fingerprint": "sha256:2eaa3338ee8da29b102001a903bec344876753519bd76ebfab634dddb8237979",
+     "Title": "curl: curl: info leak uploading over WebSockets with GnuTLS",
+     "Description": "When curl is built with GnuTLS, a malicious WebSocket server can make curl\nsend memory past its send buffer. This is due to an out of bounds read\nfollowing when `gnutls_record_send()` returns a number of bytes sent **greater\nthan the number of bytes it was given to send**. GnuTLS does that after a\nblocked send.",
+     "Severity": "LOW",
+     "CweIDs": [
+      "CWE-126"
+     ],
+     "VendorSeverity": {
+      "redhat": 1,
+      "ubuntu": 1
+     },
+     "CVSS": {
+      "redhat": {
+       "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:L",
+       "V3Score": 4.8
+      }
+     },
+     "References": [
+      "https://access.redhat.com/security/cve/CVE-2026-107928",
+      "https://curl.se/docs/CVE-2026-107928.html",
+      "https://curl.se/docs/CVE-2026-107928.json",
+      "https://hackerone.com/reports/4099194",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-107928",
+      "https://ubuntu.com/security/notices/USN-8927-1",
+      "https://ubuntu.com/security/notices/USN-8927-2",
+      "https://www.cve.org/CVERecord?id=CVE-2026-107928"
+     ],
+     "PublishedDate": "2026-10-20T21:17:15.47Z",
+     "LastModifiedDate": "2026-10-30T17:17:12.533Z"
+    },
+    {
+     "VulnerabilityID": "CVE-2026-107929",
+     "PkgID": "curl@8.22.0-r0",
+     "PkgName": "curl",
+     "PkgIdentifier": {
+      "PURL": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "8f537a81060cb509",
+      "BOMRef": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "InstalledVersion": "8.22.0-r0",
+     "FixedVersion": "8.23.0-r0",
+     "Status": "fixed",
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-107929",
+     "DataSource": {
+      "ID": "alpine",
+      "Name": "Alpine Secdb",
+      "URL": "https://secdb.alpinelinux.org/"
+     },
+     "Fingerprint": "sha256:b20259300a2fb7c3bcb9a70b6ad95bcbd5d6d9cb5fd1ff6d8b38b514bb8008f8",
+     "Title": "curl: curl: local interface connection reuse mixup",
+     "Description": "When `CURLOPT_INTERFACE` (or the command line tool's `--interface` option) is\nset with one of the documented prefixes (`if!`, `host!`, `ifhost!`), that\nbinding is not part of the connection reuse key, so a later transfer asking\nfor a different source can silently reuse an existing connection and go out\nfrom the earlier transfer's source address",
+     "Severity": "LOW",
+     "CweIDs": [
+      "CWE-488"
+     ],
+     "VendorSeverity": {
+      "redhat": 1,
+      "ubuntu": 1
+     },
+     "CVSS": {
+      "redhat": {
+       "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N",
+       "V3Score": 3.7
+      }
+     },
+     "References": [
+      "https://access.redhat.com/security/cve/CVE-2026-107929",
+      "https://curl.se/docs/CVE-2026-107929.html",
+      "https://curl.se/docs/CVE-2026-107929.json",
+      "https://hackerone.com/reports/4099618",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-107929",
+      "https://ubuntu.com/security/notices/USN-8927-1",
+      "https://ubuntu.com/security/notices/USN-8927-2",
+      "https://www.cve.org/CVERecord?id=CVE-2026-107929"
+     ],
+     "PublishedDate": "2026-10-20T21:17:15.593Z",
+     "LastModifiedDate": "2026-10-30T17:17:12.723Z"
+    },
+    {
+     "VulnerabilityID": "CVE-2026-86409",
+     "PkgID": "curl@8.22.0-r0",
+     "PkgName": "curl",
+     "PkgIdentifier": {
+      "PURL": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3",
+      "UID": "8f537a81060cb509",
+      "BOMRef": "pkg:apk/alpine/curl@8.22.0-r0?arch=x86_64&distro=3.24.3"
+     },
+     "InstalledVersion": "8.22.0-r0",
+     "FixedVersion": "8.23.0-r0",
+     "Status": "fixed",
+     "Layer": {
+      "Digest": "sha256:b9b388a21ecfde6ac80505f23f527146a2129dfb104e79b029bbd00d4cc1a919",
+      "DiffID": "sha256:a617e334a194398d200a112e5d4a39c65aa720650fe0fae732bdb1d7d4fb53a0"
+     },
+     "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-86409",
+     "DataSource": {
+      "ID": "alpine",
+      "Name": "Alpine Secdb",
+      "URL": "https://secdb.alpinelinux.org/"
+     },
+     "Fingerprint": "sha256:9aaa86c4f5b56de881d2f54d5396917d32bc264047946d426cb2cb0337afdf96",
+     "Title": "curl: curl: stale SigV4 headers sent unintended",
+     "Description": "Setting `CURLOPT_AWS_SIGV4` to NULL but does not disable SigV4 authentication,\ncontrary to expectations and documentation. A subsequent transfer on the same\nhandle still sends an `Authorization: AWS4-HMAC-SHA256` header to whatever URL\nisset next, leaking state information.",
+     "Severity": "LOW",
+     "CweIDs": [
+      "CWE-201"
+     ],
+     "VendorSeverity": {
+      "redhat": 1,
+      "ubuntu": 1
+     },
+     "CVSS": {
+      "redhat": {
+       "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N",
+       "V3Score": 5.3
+      }
+     },
+     "References": [
+      "https://access.redhat.com/security/cve/CVE-2026-86409",
+      "https://curl.se/docs/CVE-2026-86409.html",
+      "https://curl.se/docs/CVE-2026-86409.json",
+      "https://hackerone.com/reports/3973135",
+      "https://nvd.nist.gov/vuln/detail/CVE-2026-86409",
+      "https://ubuntu.com/security/notices/USN-8927-1",
+      "https://ubuntu.com/security/notices/USN-8927-2",
+      "https://ubuntu.com/security/notices/USN-8932-1",
+      "https://www.cve.org/CVERecord?id=CVE-2026-86409"
+     ],
+     "PublishedDate": "2026-10-20T20:17:25.223Z",
+     "LastModifiedDate": "2026-10-29T19:17:27.08Z"
+    }
+   ]
+  }
+ ]
+}

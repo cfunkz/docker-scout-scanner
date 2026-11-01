@@ -1,0 +1,47 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Docker Scout Scanner",
+  "id": "docker-scout-scanner",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8790,
+  "tipi_version": 1,
+  "version": "1.0.0",
+  "categories": ["security", "utilities"],
+  "short_desc": "Vulnerability dashboard for the images on your Docker host.",
+  "description": "Scans every image on the host with Trivy (and optionally Grype), ranks the findings by EPSS, CISA KEV and whether the image is running, and tells you which package upgrade fixes the most. Includes an admin panel, API tokens and two-factor sign-in.",
+  "author": "cfunkz",
+  "source": "https://github.com/cfunkz/docker-scout-scanner",
+  "website": "https://github.com/cfunkz/docker-scout-scanner",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Admin username",
+      "default": "admin",
+      "required": true,
+      "env_variable": "SCANNER_ADMIN_USER"
+    },
+    {
+      "type": "password",
+      "label": "Admin password",
+      "hint": "At least 12 characters. Used for the first start only; change it later in the app.",
+      "min": 12,
+      "max": 72,
+      "required": true,
+      "env_variable": "SCANNER_ADMIN_PASSWORD"
+    },
+    {
+      "type": "number",
+      "label": "Admin panel port (localhost only)",
+      "hint": "The admin panel is published on 127.0.0.1 of the Runtipi host. Open it through an SSH tunnel.",
+      "default": 8444,
+      "required": false,
+      "env_variable": "SCANNER_ADMIN_PORT"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1793491200000,
+  "updated_at": 1793491200000,
+  "min_tipi_version": "4.5.0"
+}

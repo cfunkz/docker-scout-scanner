@@ -1,0 +1,71 @@
+services:
+  # nginx + web UI. Runtipi's Traefik terminates TLS and forwards plain HTTP
+  # to port 8080 (HTTP_MODE=proxy). The admin panel stays on 127.0.0.1.
+  docker-scout-scanner:
+    image: ghcr.io/cfunkz/docker-scout-scanner-web:1.0.0
+    environment:
+      - SCANNER_UPSTREAM=docker-scout-scanner-backend
+      - HTTP_MODE=proxy
+      - TRUSTED_PROXIES=10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+    ports:
+      - 127.0.0.1:${SCANNER_ADMIN_PORT:-8444}:8444
+    volumes:
+      - ${APP_DATA_DIR}/data/certs:/certs:ro
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      docker-scout-scanner-backend:
+        condition: service_healthy
+    x-runtipi:
+      is_main: true
+      internal_port: 8080
+
+  # API, scheduler, Trivy and Grype. Runs as root inside the container only
+  # so it can write to Runtipi's root-owned app-data folder; all capabilities
+  # are dropped and the filesystem is read-only.
+  docker-scout-scanner-backend:
+    image: ghcr.io/cfunkz/docker-scout-scanner:1.0.0
+    user: "0:0"
+    environment:
+      - DOCKER_HOST=tcp://docker-scout-scanner-socket-proxy:2375
+      - ADMIN_USER=${SCANNER_ADMIN_USER:-admin}
+      - ADMIN_PASSWORD=${SCANNER_ADMIN_PASSWORD}
+      - TZ=${TZ:-UTC}
+    volumes:
+      - ${APP_DATA_DIR}/data/scanner:/data
+      - ${APP_DATA_DIR}/data/certs:/certs
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      - docker-scout-scanner-socket-proxy
+
+  # Read-only filter in front of the Docker socket: only image/container
+  # listing, image inspect/export, events and version get through.
+  docker-scout-scanner-socket-proxy:
+    image: ghcr.io/cfunkz/docker-scout-scanner:1.0.0
+    command: ["socket-proxy"]
+    user: "0:0"
+    environment:
+      - HEALTH_PING=1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+x-runtipi:
+  schema_version: 2

@@ -1,0 +1,15 @@
+# Point this scanner at a remote agent instead of the local Docker host.
+# Set REMOTE_DOCKER_HOST in .env, then:
+#
+#   docker compose -f docker-compose.yml -f docker-compose.remote.yml up -d
+#
+# or let ./scanner.sh pick this file up automatically when REMOTE_DOCKER_HOST is set.
+
+services:
+  scanner:
+    environment:
+      DOCKER_HOST: tcp://${REMOTE_DOCKER_HOST:?set REMOTE_DOCKER_HOST in .env}:${REMOTE_DOCKER_PORT:-2376}
+      DOCKER_TLS_VERIFY: "1"
+      DOCKER_CERT_PATH: /agent-certs
+    volumes:
+      - ./agent-certs/scanner:/agent-certs:ro

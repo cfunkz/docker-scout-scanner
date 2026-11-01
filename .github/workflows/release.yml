@@ -1,0 +1,78 @@
+# Builds multi-arch images and pushes them to GitHub Container Registry
+# when a version tag is pushed:  git tag v1.0.0 && git push origin v1.0.0
+#
+#   ghcr.io/<owner>/docker-scout-scanner:<version>      (scanner + socket proxy)
+#   ghcr.io/<owner>/docker-scout-scanner-web:<version>  (nginx + UI)
+#
+# After the first release, make both packages public under
+# GitHub > Packages > (package) > Package settings > Change visibility.
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: image names
+        id: n
+        run: |
+          owner=$(echo "${GITHUB_REPOSITORY_OWNER}" | tr '[:upper:]' '[:lower:]')
+          echo "scanner=ghcr.io/${owner}/docker-scout-scanner" >> "$GITHUB_OUTPUT"
+          echo "web=ghcr.io/${owner}/docker-scout-scanner-web" >> "$GITHUB_OUTPUT"
+          echo "version=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+      - name: scanner tags
+        id: ms
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ steps.n.outputs.scanner }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=latest,enable=${{ startsWith(github.ref, 'refs/tags/v') }}
+            type=sha
+      - name: web tags
+        id: mw
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ steps.n.outputs.web }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=latest,enable=${{ startsWith(github.ref, 'refs/tags/v') }}
+            type=sha
+      - name: scanner image
+        uses: docker/build-push-action@v6
+        with:
+          context: backend
+          platforms: linux/amd64,linux/arm64
+          push: true
+          build-args: VERSION=${{ steps.n.outputs.version }}
+          tags: ${{ steps.ms.outputs.tags }}
+          labels: ${{ steps.ms.outputs.labels }}
+          cache-from: type=gha,scope=scanner
+          cache-to: type=gha,mode=max,scope=scanner
+      - name: web image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: nginx/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.mw.outputs.tags }}
+          labels: ${{ steps.mw.outputs.labels }}

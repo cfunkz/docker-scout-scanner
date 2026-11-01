@@ -1,0 +1,32 @@
+# Remote agent: run this on another Docker host so one scanner can watch it.
+#
+# It is the same read-only socket proxy the main stack uses, served over TLS
+# with a required client certificate (Docker's own tcp:// + TLS scheme).
+# Only image and container listings, image metadata, image export and events
+# get through. See "Scanning another Docker host" in the README.
+#
+#   docker compose -f docker-compose.agent.yml up -d
+
+name: docker-scanner-agent
+
+services:
+  agent:
+    image: ghcr.io/cfunkz/docker-scout-scanner:${VERSION:-latest}
+    command: ["socket-proxy"]
+    restart: unless-stopped
+    user: "0:0" # only to open the socket; no capabilities, read-only filesystem
+    environment:
+      HEALTH_PING: "1"
+      LISTEN_ADDR: ":2376"
+      TLS_CERT: /certs/server-cert.pem
+      TLS_KEY: /certs/server-key.pem
+      TLS_CA: /certs/ca.pem
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./agent-certs/agent:/certs:ro
+    ports:
+      - "${AGENT_BIND:-0.0.0.0}:${AGENT_PORT:-2376}:2376"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 64m
